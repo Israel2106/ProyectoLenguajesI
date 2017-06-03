@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="inicio"  path="/Inicio.html"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action parameter="metodo" path="/cliente" type="com.shopymarket.app.action.ClienteAction" 
+        validate="false"
+        scope="request">
+        <forward name= "registrar" path="/registrarCliente.jsp"/>
+        <forward name="inicio"  path="/Inicio.html"/>
+        <forward name= "moduloCliente" path="/moduloCliente.jsp"/>
+        <forward name= "tiendas" path="/visorTiendas.jsp"/>
+        </action>
+        
+        <action name="Usuarios"
+                parameter="metodo" 
+                path="/usuarios" 
+                type="com.shopymarket.app.action.ActionUsuarios"
+                validate="false"
+                scope="request">
+            <forward name="error_log_in" path="/log_in.html"/>
+            <forward name="entro" path="/logueado.jsp"/>
+            <forward name="configuracion" path="/configuracionusuario.jsp"/>
+        </action>
+        
+        <action parameter="metodo" path="/productos" type="com.shopymarket.app.action.ProductosAction" 
+                validate="false"
+                scope="request">
+            <forward name="ingresar" path="/InsertarProductos.jsp"/>
+            <forward name="mostrar" path="/mostrar_productos.jsp"/>
+            <forward name="ver_producto" path="/ver_producto.jsp"/>
+            <forward name="modificar_producto" path="/modificar_producto.jsp"/>
+            <forward name="mostrarProductos" path="/productos.do?metodo=mostrarProducto"/>
+
+        </action>
+        
+        
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/shopymarket/app/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

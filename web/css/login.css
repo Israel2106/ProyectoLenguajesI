@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-may-2017, 16:20:13
+    Author     : EmmanuelJs
+*/
+
+
+
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+#main-header {
+	color: white;
+	height: 80px;
+}
+    #main-header a {
+		color: white;
+	}
+        
+/*
+ * Logo
+ */
+invalid {
+border: 2px solid #ff0000;
+}
+
+#logo-header {
+float: left;
+padding: 15px 0 0 20px;
+text-decoration: none;
+}
+
+    #logo-header:hover {
+        color:#1883ba;
+    }
+    #logo-header .site-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1.2em;
+    }
+    #principal{
+        margin:50px;
+        padding-left: 430px;
+    }
+    
+#principal label{
+    display: block;
+    font-weight: bold;
+    margin: 5px 10px;
+    }
+    
+    
+input{
+    padding: 7px 6px;
+    width: 294px;
+    border: 1px solid #CED5D7;
+    margin: 5px 10px;
+}
+     
+input[type=submit]:hover {
+    background-color:#00cccc;
+    
+}
+    
+#main-header {
+background: #666;
+color: white;
+height: 100px;
+width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+left: 0; /* Posicionamos la cabecera al lado izquierdo */
+top: 0; /* Posicionamos la cabecera pegada arriba */
+position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+}
+
+body{
+   	margin-top:10px;
+	padding: 0;
+        font-family:Helvetica,Futura,Arial,Verdana,sans-serif;
+	color: #666;
+	background:#f2f2f2; 
+	font-size: 1em;
+	line-height: 1.5em;
+	
+	padding-top: 80px; /* Relleno superior igual a la altura de la cabecera*/
+    
+}
+
+

@@ -1,0 +1,183 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-abr-2017, 16:06:14
+    Author     : EmmanuelJs
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family:Helvetica,Futura,Arial,Verdana,sans-serif;
+	color: #666;
+	background: #f2f2f2; 
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+h1 {
+	font-size: 2.3em;
+	line-height: 1.3em;
+	margin: 15px 0;
+	text-align: center;
+	font-weight: 300;
+        
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+#main-header {
+	color: white;
+	height: 80px;
+}
+    #main-header a {
+		color: white;
+	}
+        
+/*
+ * Logo
+ */
+invalid {
+border: 2px solid #ff0000;
+}
+
+#logo-header {
+	float: left;
+	padding: 15px 0 0 20px;
+	text-decoration: none;
+}
+
+        #logo-header:hover {
+                
+		color: #ccff66;
+	}
+        #logo-header .site-name {
+		display: block;
+		font-weight: 700;
+		font-size: 1.2em;
+	}
+       
+/*
+ * Navegación
+ */
+nav {
+	float: right;
+        
+}
+    nav ul {
+            
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		padding-right: 20px;
+	}
+            nav ul li {
+			display: inline-block;
+                        position:relative;
+			line-height: 50px;
+		}
+                nav ul li a {
+				display: block;
+				padding: 0 30px;
+				text-decoration: none;
+			}
+                        nav ul li a:hover {
+                            background: #0b76a6;
+                            border-radius:10px;
+                        }
+                            nav li ul{
+                                display: none;
+                                position: absolute;
+                                min-width: 140px;
+                            }
+                                        
+				
+                                nav ul li:hover >ul{
+                                    display:block;
+                                }
+.container{
+ text-align: center;
+                                    
+                                    
+}
+
+.container input{
+        padding: 7px 6px;
+    width: 294px;
+    border: 1px solid #CED5D7;
+    margin: 5px 10px;
+}
+#main-content {
+	background: white;
+	width: 90%;
+        height: 215px;
+	max-width: 800px;
+	margin: 20px auto;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+
+#main-content .content {
+	
+        border-radius: 6px;
+        padding: 45px;
+        margin-top: 50px;
+        text-align: center;
+	
+}
+
+#main-content .content .boton{
+            text-decoration:none;
+            padding: 20px;
+            font-weight: 600;
+            font-size: 25px;
+            color: #000000;
+            background-color: #1883ba;
+            border-radius: 7px;
+    
+        }
+        
+ #main-content  .content .boton:hover{
+            color: #1883ba;
+            background-color: #ffffff;
+        }
+        
+
+ #main-footer {
+    background: #3333ff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 250px;
+}
+#main-footer a {
+		color: white;
+	}
+        
+#main-header {
+	background: #666;
+	color: white;
+	height: 100px;
+	width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+}
+
+body {
+	margin: 0;
+	padding: 0;
+        font-family:Helvetica,Futura,Arial,Verdana,sans-serif;
+	color: #666;
+	background:#A4C1FF; 
+	font-size: 1em;
+	line-height: 1.5em;
+	
+	padding-top: 80px; /* Relleno superior igual a la altura de la cabecera*/
+}

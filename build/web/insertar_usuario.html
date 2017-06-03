@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Crear Usuario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel= "stylesheet" href="css/login.css"/>
+
+   </head>
+    
+   
+<body>
+    
+     <script>
+        function comprobarClave(){ 
+   	clave1 = document.finsertar.pass.value 
+   	clave2 = document.finsertar.passwordsignup_confirm.value 
+
+   	if (clave1 != clave2) {
+            alert("Las passwords deben de coincidir");
+            document.finsertar.pass.value = "";
+            document.finsertar.passwordsignup_confirm.value = "";
+            return false;
+          } else {
+            return true; 
+          }
+    }
+        
+    </script>
+    
+    <header id="main-header">
+        <a id="logo-header" href="Inicio.html">
+                <img src="./img/logo3.png"  width="50" height="50"/>
+                <span class="site-name">ShopyMarket</span>
+		<span class="site-desc">Tu Mercado Cerquitica</span>
+                
+            </a> <!-- / #logo-header -->
+        
+    </header>
+    
+    <div id="principal">
+
+    
+	
+                    
+        <form  method="POST" action="./usuarios.do" autocomplete="on" name="finsertar" onsubmit=" return comprobarClave()">
+                            <input type="hidden" name="metodo" value="insertarUsuarios"/>
+                            
+				<h1> Sign up </h1> 
+				
+					<label>Nombre Usuario </label>
+					<input name="user" required="required" type="text" placeholder="minombreusuario" />
+				
+					<label>Email </label>
+					<input name="email" required="required" type="email" placeholder="micorreo@mail.com"/> 
+				
+					<label>Contraseña </label>
+					<input name="pass" required="required" type="password" placeholder="ej.X8df90EO"/>
+				
+					<label >Confirmar Contraseña </label>
+					<input name="passwordsignup_confirm" required="required" type="password" placeholder="ej.X8df90EO"/>
+				 
+					<label> Direccion </label>
+					<input name="direccion" required="required" type="text" placeholder="Limon Pococí Guapíles"/> 
+				
+                                
+				<p class="signin_button"> 
+					<input type="submit" value="Crear Cuenta" /> 
+				</p>
+				<p class="change_link">  
+					Ya eres Miembro ?
+					<a href="log_in.html" class="to_register"> Go and log in </a>
+				</p>
+			</form>
+		
+	
+    </div> 
+ 
+</body>
+</html>

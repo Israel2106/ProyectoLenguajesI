@@ -1,0 +1,164 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-abr-2017, 17:41:25
+    Author     : EmmanuelJs
+*/
+
+    
+html{
+
+   background-image: url(../img/bg.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+  
+}
+
+body{
+    
+   
+    
+    margin: 0;
+	padding: 0;
+	font-family:Helvetica,Futura,Arial,Verdana,sans-serif;
+	color: #666;
+	background: #f2f2f2; 
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+.container{
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    background-color: rgba(52,73,94,0.7);
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.container img{
+    
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+}
+
+.container label{
+    display: block;
+    font-weight: bold;
+    margin: 5px 10px;
+}
+input[type=text], input[type=password]{
+    
+    height: 45px;
+    width: 300px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+    
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+    
+}
+
+a:hover{
+    color: coral;
+    font-weight: bold;
+    
+    
+}
+
+#main-header {
+	color: white;
+	height: 80px;
+}
+    #main-header a {
+		color: white;
+	}
+        
+/*
+ * Logo
+ */
+
+
+#logo-header {
+	float: left;
+	padding: 15px 0 0 20px;
+	text-decoration: none;
+}
+
+        #logo-header:hover {
+                
+		color: #ccff66;
+	}
+        #logo-header .site-name {
+		display: block;
+		font-weight: 700;
+		font-size: 1.2em;
+	}
+       
+/*
+ * Navegación
+ */
+nav {
+	float: right;
+        
+}
+    nav ul {
+            
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		padding-right: 20px;
+	}
+            nav ul li {
+			display: inline-block;
+			line-height: 80px;
+		}
+                nav ul li a {
+				display: block;
+				padding: 0 30px;
+				text-decoration: none;
+			}
+                        nav ul li a:hover {
+                            background: #0b76a6;
+                            border-radius:50px;
+                                        
+				}
+                                
+                                
+#main-header {
+	background: #ff3300;
+	color: white;
+	height: 100px;
+	width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+}
+
+
+
