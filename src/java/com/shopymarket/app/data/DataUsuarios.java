@@ -59,17 +59,17 @@ public class DataUsuarios extends DataBase{
         public boolean eliminarUsuario(int id_user){
     
         boolean eliminar = true;    
-        String sql= "DELETE FROM usuarios where id= '"+id_user+"'";
+        String sql= "CALL pa_EliminarUsuario("+id_user+")";
        
         try {
             con = this.getConection();
-            PreparedStatement statement = con.prepareStatement(sql);
+            CallableStatement statement = (CallableStatement) con.prepareCall(sql);
             statement.executeUpdate();
             statement.close();
             con.close();
         } catch (SQLException ex) {
             eliminar = false;
-            Logger.getLogger(DataUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return eliminar;
     }
@@ -77,46 +77,46 @@ public class DataUsuarios extends DataBase{
         public boolean actualizarUsuario(int id_user, Usuarios user){
     
         boolean actualizar = true;    
-        String sql= "UPDATE usuarios SET email='"+user.getEmail()+"',"+"user_name='"+user.getUserName()+"',"+"pass='"+user.getContrasena()+"',"+"direccion='"+user.getDireccion()+"'"+" WHERE id = "+id_user+"";
+        String sql= "CALL pa_ActualizarUsuario('"+user.getEmail()+"','"+user.getUserName()+"','"+user.getContrasena()+"','"+user.getDireccion()+"',"+id_user+")";
        
         try {
            con = this.getConection();
-            PreparedStatement statement = con.prepareStatement(sql);
+            CallableStatement statement = (CallableStatement) con.prepareCall(sql);
             statement.executeUpdate();
             statement.close();
             con.close();
         } catch (SQLException ex) {
             actualizar = false;
-            Logger.getLogger(DataUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return actualizar;
     }
         
      public Usuarios validarUser(String user, String pass){
          
-          String sql= "SELECT * FROM usuarios WHERE user_name='"+user+"'AND pass='"+pass+"'";
-         Usuarios usuario;
-         usuario = new Usuarios("", "", "", 0, "");
+        String sql= "CALL pa_validarUser('"+user+"', '"+pass+"')";
+        Usuarios usuario;
+        usuario = new Usuarios("", "", "", 0, "");
         try {
             con = this.getConection();
-            PreparedStatement st = con.prepareStatement(sql);
-            ResultSet rs=st.executeQuery();
+            CallableStatement cst = (CallableStatement) con.prepareCall(sql);
+            ResultSet rs=cst.executeQuery();
          
             while(rs.next()){
                 usuario.setEmail(rs.getString("email"));
-                usuario.setUserName(rs.getString("user_name"));
+                usuario.setUserName(rs.getString("nombre"));
                 usuario.setContrasena(rs.getString("pass"));
-                usuario.setId(rs.getInt("id"));
+                usuario.setId(rs.getInt("idUsuario"));
                 usuario.setDireccion(rs.getString("direccion"));
            
             }
        
-            st.close();
+            cst.close();
             con.close();
  
         } catch (SQLException ex) {
           
-            Logger.getLogger(DataUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         
         return usuario;
@@ -127,7 +127,7 @@ public class DataUsuarios extends DataBase{
       public Usuarios getUsuario(int id){
         
         
-        String sql ="SELECT * FROM usuarios WHERE id='"+id+";";
+        String sql ="CALL pa_obtenerUsuario("+id+")";
         
         Usuarios usuarios;
         usuarios = new Usuarios("", "", "", 0, "");
@@ -135,14 +135,14 @@ public class DataUsuarios extends DataBase{
         try {
             con=this.getConection();
             
-            PreparedStatement statement = con.prepareStatement(sql);
+            CallableStatement statement = (CallableStatement) con.prepareCall(sql);
             ResultSet result = statement.executeQuery();
             
             while (result.next()) {
                 usuarios.setEmail(result.getString("email"));
-                usuarios.setUserName(result.getString("user_name"));
+                usuarios.setUserName(result.getString("nombre"));
                 usuarios.setContrasena(result.getString("pass"));
-                usuarios.setId(result.getInt("id"));
+                usuarios.setId(result.getInt("idUsuario"));
                 usuarios.setDireccion(result.getString("direccion"));
                 
 

@@ -45,7 +45,7 @@ public class DataBase {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
-     return   con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto",user,pass);
+     return   con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopyMarketDB",user,pass);
     }
     
 }

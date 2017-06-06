@@ -40,7 +40,7 @@ public class ClienteAction extends DispatchAction {
         Cliente c = new Cliente(n, em, tel);
         BussinessCliente bc = new BussinessCliente("root", "");
         c.setId(bc.getNextID());
-        bc.insertarCliente(n, em, tel,pass);
+        bc.insertarVendedor(n, em, tel,pass);
         request.setAttribute("cliente",c);
         return mapping.findForward("moduloCliente");
     }
@@ -60,7 +60,7 @@ public class ClienteAction extends DispatchAction {
             Cliente c= new Cliente(n, em, tel);
             c.setId(Integer.parseInt(id));
             BussinessCliente bc= new  BussinessCliente("root", "");
-            bc.editarCliente(c, id);
+            bc.editarVendedor(c, id);
             request.setAttribute("cliente",c);
         
         return mapping.findForward("moduloCliente");
@@ -71,7 +71,7 @@ public class ClienteAction extends DispatchAction {
             throws Exception {
             String id= request.getParameter("idEmpresa");
             BussinessCliente bc= new  BussinessCliente("root", "");
-            bc.eliminarCliente(id);
+            bc.eliminarVendedor(id);
         
         return mapping.findForward("inicio");
     }
@@ -81,7 +81,7 @@ public class ClienteAction extends DispatchAction {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
             BussinessCliente bc= new BussinessCliente("root", "");
-            LinkedList<Cliente> supermercados= bc.obtenerClientes();
+            LinkedList<Cliente> supermercados= bc.obtenerTodosVendedores();
             request.setAttribute("supermercados", supermercados);
             
             

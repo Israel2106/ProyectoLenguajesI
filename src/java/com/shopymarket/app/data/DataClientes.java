@@ -29,8 +29,8 @@ public class DataClientes extends DataBase{
     }
     Connection con;
     
-    public void insertarCliente(String nombre,String email, String telefono,String pass){
-       String sql= "CALL pa_insertarCliente('"+nombre+"','"+email+"','"+telefono+"','"+pass+"');";
+    public void insertarVendedor(String nombre,String email, String telefono,String pass){
+       String sql= "CALL pa_insertarVendedor('"+nombre+"','"+email+"','"+telefono+"','"+pass+"');";
        
         try {
             con = this.getConection();
@@ -44,10 +44,10 @@ public class DataClientes extends DataBase{
     
     
     
-    public boolean eliminarCliente(String id){
+    public boolean eliminarVendedor(String id){
     
         boolean eliminar = true;    
-        String sql= "CALL pa_eliminarCliente("+id+")";
+        String sql= "CALL pa_eliminarVendedor("+id+")";
        
         try {
             con = this.getConection();
@@ -63,10 +63,10 @@ public class DataClientes extends DataBase{
     
     
     
-    public boolean editarCliente(Cliente c, String id){
-        
+    public boolean editarVendedor(Cliente c, String id){
+        JOptionPane.showMessageDialog(null, id);
         boolean actualizar = true;    
-        String sql= "call pa_actualizarCliente('"+c.getNombreEmpresa()+"','"+c.getEmail()+"','"+c.getTelefono()+"',"+id+")";
+        String sql= "call pa_actualizarVendedor('"+c.getNombreEmpresa()+"','"+c.getEmail()+"','"+c.getTelefono()+"',"+id+")";
        
         try {
             con = this.getConection();
@@ -80,8 +80,8 @@ public class DataClientes extends DataBase{
         return actualizar;
     }
     
-    public void insertarUbicacionCliente(int idEmpresa,String provincia,String canton, String distrito,String ubicacionE){
-       String sql= "CALL pa_agregarUbicacionEmpresa("+idEmpresa+","
+    public void insertarUbicacionVendedor(int idEmpresa,String provincia,String canton, String distrito,String ubicacionE){
+       String sql= "CALL pa_agregarUbicacionVendedor("+idEmpresa+","
                + "'"+provincia+"','"+canton+"','"+distrito+"','"+ubicacionE+"');";
        
         try {
@@ -94,17 +94,17 @@ public class DataClientes extends DataBase{
         }
     }
     
-    public LinkedList<Cliente> obtenerClientes(){ 
+    public LinkedList<Cliente> obtenerTodosVendedores(){ 
         LinkedList<Cliente> lc= new LinkedList<>();
-        String sql= "CALL pa_obtener_Clientes";
+        String sql= "CALL pa_obtener_Vendedores";
         ResultSet r= null;
         try {
             con = this.getConection();
             CallableStatement proc = (CallableStatement) con.prepareCall(sql);
             r=proc.executeQuery();
             while(r.next()){
-                Cliente c= new Cliente(r.getString("nombreEmpresa"), r.getString("email"), r.getString("telefono"));
-                c.setId(r.getInt("idEmpresa"));
+                Cliente c= new Cliente(r.getString("nombre"), r.getString("email"), r.getString("telefono"));
+                c.setId(r.getInt("idUsuario"));
                 lc.add(c);
             }
             con.close();
@@ -116,7 +116,7 @@ public class DataClientes extends DataBase{
     
     
        public int getNextID(){
-            String idQuery="select AUTO_INCREMENT from information_schema.TABLES where TABLE_SCHEMA='proyecto' and TABLE_NAME='cliente';";
+            String idQuery="select AUTO_INCREMENT from information_schema.TABLES where TABLE_SCHEMA='shopyMarketDB' and TABLE_NAME='usuarios';";
             ResultSet re = null;
             int id=0;
             try {

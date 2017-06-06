@@ -84,7 +84,7 @@ public class DataProducto extends DataBase {
     
     public boolean insertar(Producto producto){
         boolean inserto = true;    
-        String sql= "INSERT INTO producto(idCategoria,idEmpresa,nombre,marca,precio,cantidad,imagen) "
+        String sql= "INSERT INTO producto(idCategoria,idVendedor,nombre,marca,precio,cantidad,imagen) "
                 + "VALUES (?,?,?,?,?,?,?)";
        
         
@@ -137,7 +137,7 @@ public class DataProducto extends DataBase {
         String sql= "UPDATE producto set "
                 + " nombre='"+p.getNombre()+"',marca='"+p.getMarca()+"',"
                 + "precio="+p.getPrecio()+", cantidad="+p.getCantidad()+" "
-                + "where idProducto= "+idProducto+" and idEmpresa = "+idCliente+"";
+                + "where idProducto= "+idProducto+" and idVendedor = "+idCliente+"";
         
         try{
         
@@ -161,7 +161,7 @@ public class DataProducto extends DataBase {
         Producto producto;
         producto= new Producto("",0,"",0,"",0);
          try {
-             String sql ="SELECT * FROM producto where nombre = ? and idEmpresa = ?";
+             String sql ="SELECT * FROM producto where nombre = ? and idVendedor = ?";
              
              con = this.getConection();
              
@@ -178,7 +178,7 @@ public class DataProducto extends DataBase {
                  producto.setNombre(res.getString("nombre"));
                  producto.setPrecio(res.getInt("precio"));
                  producto.setMarca(res.getString("marca"));
-                 producto.setIdCliente(res.getInt("idEmpresa"));
+                 producto.setIdCliente(res.getInt("idVendedor"));
              }
          } catch (SQLException ex) {
              Logger.getLogger(DataProducto.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,7 +207,7 @@ public class DataProducto extends DataBase {
             prod.setNombre(result.getString("nombre"));
             prod.setMarca(result.getString("marca"));
             prod.setPrecio(result.getInt("precio"));
-            prod.setIdCliente(result.getInt("idEmpresa"));
+            prod.setIdCliente(result.getInt("idVendedor"));
             prod.setCantidad(result.getInt("cantidad"));
             prod.setImagen(result.getString("imagen"));
            

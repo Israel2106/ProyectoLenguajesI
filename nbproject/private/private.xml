@@ -10,7 +10,9 @@
             <file>file:/C:/Users/EmmanuelJs/Documents/Lenguajes/ProyectoLenguajes/ProyectoLenguajes/web/WEB-INF/struts-config.xml</file>
         </group>
         <group>
+            <file>file:/C:/Users/Israel/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataUsuarios.java</file>
             <file>file:/C:/Users/Israel/Documents/NetBeansProjects/ProyectoLenguajesI/web/Inicio.html</file>
+            <file>file:/C:/Users/Israel/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataClientes.java</file>
         </group>
     </open-files>
 </project-private>
