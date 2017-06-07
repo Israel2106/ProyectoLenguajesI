@@ -25,10 +25,11 @@ and open the template in the editor.
 .slider li{
     width: 100%;
     list-style: none;
+    text-align: center;
 }
 
 .slider img{
-    width: 100%;
+    width: 50%;
 }
 
 @keyframes cambio{

@@ -7,7 +7,21 @@ and open the template in the editor.
     Created on : 05/04/2017, 02:20:57 PM
     Author     : Yessica Zuñiga
 */
+#logo-header {
+	float: left;
+	padding: 15px 0 0 20px;
+	text-decoration: none;
+}
 
+        #logo-header:hover {
+                
+		color: #ccc;
+	}
+        #logo-header .site-name {
+		display: block;
+		font-weight: 700;
+		font-size: 1.2em;
+	}
 
 
 header nav {
@@ -42,7 +56,7 @@ header nav ul li a:hover{
 section{
     alignment-adjust: central;
     border-radius: 5px;
-    width: 94%;
+    width: 80%;
     height: 100%;    
     border: 1px solid gray;    
     padding: 20px;
@@ -52,6 +66,16 @@ section{
     overflow: hidden;  
     
       
+}
+
+#link{
+     text-decoration:none;            
+     padding: 20px;
+     font-weight: 600;
+     font-size: 25px;
+     color: #000000;
+     background-color: #1883ba;
+     border-radius: 7px;
 }
 
 
@@ -67,9 +91,6 @@ input[type=submit]:hover {
     background-color: #45a049;
     
 }
-
-
-
 
 
 input[type=button], input[type=submit], input[type=reset] {
@@ -127,16 +148,14 @@ div.container {
 }
 body {
     border-radius: 5px;
-    width: 97%;
-    height: 100%;
-    overflow: auto;
-    border: 1px solid gray;
-    
-    padding: 20px;
-    color: black;
-    text-align: left;
+    margin: 0;
+    padding: 0;
+    color: black; 
+    font-size: 1em;
+    line-height: 1.5em;
     background-color: #3CBC8D;
-    background: #FFFFFF;}
+    background: #FFFFFF;
+}
 
  footer {
     padding: 1em;
@@ -144,7 +163,7 @@ body {
     background-color: black;
     overflow: hidden;
     text-align: center;
-    width: 100%;
+    margin-top: 50px;
 }
 
 
@@ -181,4 +200,34 @@ div.contActualizar{
   border: 2px solid #ccc;
   /* IMPORTANTE */
   text-align: center;
+}
+
+#main-content {
+	
+	
+	max-width: 800px;
+	margin: 20px auto;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+        text-align: center;
+}
+
+#main-header {
+	background: #666;
+	color: white;
+	height: 100px;
+	width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+}
+
+body {
+	margin: 0;
+	padding: 0;
+        font-family:Helvetica,Futura,Arial,Verdana,sans-serif;
+	color: #666;
+	 
+	font-size: 1em;
+	line-height: 1.5em;
+	padding-top: 90px; /* Relleno superior igual a la altura de la cabecera*/
 }
