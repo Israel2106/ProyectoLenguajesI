@@ -46,7 +46,6 @@ public class ActionUsuarios extends DispatchAction {
   
         if(bu.insertarU(usua)==true){
             
-            JOptionPane.showMessageDialog(null, "Se registró exitosamente");
             return mapping.findForward("error_log_in");
             
         }else{
