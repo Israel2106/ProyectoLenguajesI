@@ -32,7 +32,7 @@ public class DataUsuarios extends DataBase{
     }
     
     
-     public boolean insertarUsuario(Usuarios user){
+      public boolean insertarUsuario(Usuarios user){
         boolean inserto = true;
         String sql ="CALL insertar_usuario('"+user.getEmail()+"', '"+user.getUserName()+"', '"+user.getContrasena()+"', '"+user.getDireccion()+"')";
 
