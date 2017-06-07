@@ -42,9 +42,18 @@ public class ActionUsuarios extends DispatchAction {
        Usuarios usua = new Usuarios(email, user, pass, 0, direccion);
        BussinessUsuarios bu = new BussinessUsuarios();
        
-        
-        bu.insertarU(usua);//email, user, pass, id, direccion
-        return mapping.findForward("error_log_in");
+        bu.enviarMensaje(email, "");//email= receptor del mensaje
+  
+        if(bu.insertarU(usua)==true){
+            
+            JOptionPane.showMessageDialog(null, "Se registró exitosamente");
+            return mapping.findForward("error_log_in");
+            
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "El correo ya existe intente con otro");
+            return mapping.findForward("insertar_usuario.html");
+            }
     }
 
     /**
