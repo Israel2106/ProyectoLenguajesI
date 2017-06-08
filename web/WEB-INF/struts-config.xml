@@ -38,6 +38,7 @@
             <forward name="error_log_in" path="/log_in.html"/>
             <forward name="entro" path="/User_logueado/logueado.jsp"/>
             <forward name="configuracion" path="/configuracionusuario.jsp"/>
+            <forward name="error_correo" path="/recuperarcontrasena.jsp"/>
         </action>
         
         <action parameter="metodo" path="/productos" type="com.shopymarket.app.action.ProductosAction" 

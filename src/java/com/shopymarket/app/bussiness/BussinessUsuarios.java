@@ -61,4 +61,14 @@ public class BussinessUsuarios {
            send.send(receptor, pass);
        
        }
+          
+          
+      public String recuperarContrasena(String email){
+        
+        DataUsuarios du = new DataUsuarios("root","");//DataUsuarios("ucrgrupo4","Grupo#4Koee!")
+        //du.insertarUsuario(user);//email, user, pass, id, direccion
+        
+        return du.recuperarContrasena(email);
+    
+    }
 }//class

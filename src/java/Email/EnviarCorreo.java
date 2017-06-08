@@ -47,6 +47,7 @@ public class EnviarCorreo {
                 Message.RecipientType.TO,
                 new InternetAddress(receptor));
             message.setSubject("ShopyMarket");
+            
             message.setText("Bienvenido " + receptor+" a shopyMarket     " +pass);
 
             // Lo enviamos.

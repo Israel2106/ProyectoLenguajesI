@@ -154,4 +154,32 @@ public class DataUsuarios extends DataBase{
         }
         return usuarios;
     }//metodo getEditorial
+      
+  public String recuperarContrasena(String correo){
+        
+        
+        String sql ="CALL recuperar_contrasena('"+correo+"')";
+       
+        String contrasena="";
+
+        try {
+            con=this.getConection();
+            
+            CallableStatement statement = (CallableStatement) con.prepareCall(sql);
+            ResultSet result = statement.executeQuery();
+            
+            while (result.next()) {
+                contrasena = result.getString("pass");
+                
+            }
+            statement.close();
+            con.close();
+            
+      
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DataUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return contrasena;
+    }//metodo getEditorial
 }

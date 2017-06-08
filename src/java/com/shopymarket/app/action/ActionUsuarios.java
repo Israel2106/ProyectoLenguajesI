@@ -142,10 +142,27 @@ public class ActionUsuarios extends DispatchAction {
             request.setAttribute("pass", pass);
             request.setAttribute("id", id);
             request.setAttribute("direccion", direccion);
-            
-       
-      
-        
+
         return mapping.findForward("configuracion");
+    }
+      
+      public ActionForward recuperaContrasena(ActionMapping mapping, ActionForm form,HttpServletRequest request, HttpServletResponse response)
+  throws Exception {
+        
+        String email = request.getParameter("email");
+        BussinessUsuarios bu = new BussinessUsuarios();
+        
+        
+        if(bu.recuperarContrasena(email).equals("")){
+            return mapping.findForward("error_correo");
+            
+        }else{
+            
+            bu.enviarMensaje(email, bu.recuperarContrasena(email));
+            JOptionPane.showMessageDialog(null, "Revise su Correo");
+            return mapping.findForward("error_log_in");
+            
+        }//else
+
     }
 }

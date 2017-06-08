@@ -73,7 +73,7 @@ section{
      padding: 20px;
      font-weight: 600;
      font-size: 25px;
-     color: #000000;
+     color: white;
      background-color: #1883ba;
      border-radius: 7px;
 }
@@ -203,8 +203,7 @@ div.contActualizar{
 }
 
 #main-content {
-	
-	
+
 	max-width: 800px;
 	margin: 20px auto;
 	box-shadow: 0 0 10px rgba(0,0,0,.1);
