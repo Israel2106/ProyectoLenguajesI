@@ -28,7 +28,7 @@
              <nav>
 		<ul>
                     <li><a href="./registrarCliente.jsp">Registrar tienda</a></li>
-                    <li><a href="log_in.html">Log in</a></li>
+                    <li><a href="log_in.html">Inicio de Sesion</a></li>
                     
 		</ul>
             </nav>

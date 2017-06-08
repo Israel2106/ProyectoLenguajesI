@@ -8,9 +8,12 @@
             <file>file:/C:/Users/Israel/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataClientes.java</file>
         </group>
         <group name="Examen">
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/Email/EnviarCorreo.java</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/recuperarcontrasena.jsp</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/WEB-INF/struts-config.xml</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/registrarCliente.jsp</file>
             <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/com/shopymarket/app/bussiness/BussinessUsuarios.java</file>
             <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/com/shopymarket/app/action/ActionUsuarios.java</file>
-            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/com/shopymarket/app/dominio/Usuarios.java</file>
             <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataUsuarios.java</file>
         </group>
     </open-files>
