@@ -49,6 +49,7 @@
             <forward name="ver_producto" path="/ver_producto.jsp"/>
             <forward name="modificar_producto" path="/modificar_producto.jsp"/>
             <forward name="mostrarProductos" path="/productos.do?metodo=mostrarProducto"/>
+            <forward name="inicio" path="/productos.do?metodo=mostrar"/>
 
         </action>
         

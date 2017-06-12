@@ -6,8 +6,8 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <link rel="stylesheet" href="css/sliderPresentacion.css">
-        <link rel="stylesheet" href="css/hoja_de_estilos_1.css" >
+       
+        <link rel="stylesheet" href="css/global_css.css" >
         
         
         <title>home</title>
@@ -20,19 +20,20 @@ and open the template in the editor.
     <body>
         <header id="main-header">
             
-            <a id="logo-header" href="Inicio.html">
-                <img src="./img/logo3.png"  width="50" height="50"/>
+           
+            
+             <nav>
+                 <a id="logo-header" href="Inicio.html">
                 <span class="site-name">ShopyMarket</span>
 		<span class="site-desc">Tu Mercado Cerquitica</span>
                 
-            </a> <!-- / #logo-header -->
-            
-             <nav>
+                 </a> <!-- / #logo-header -->
 		<ul>
                     <li><a href="./registrarCliente.jsp">Registrar tienda</a></li>
                     <li><a href="log_in.html">Inicio Sesion</a></li>
                     
 		</ul>
+                 
             </nav><!-- / nav -->
 
         </header>
@@ -52,14 +53,19 @@ and open the template in the editor.
                     <li><img src="./img/bg.jpg"/></li>
                     <li><img src="./img/canasta.jpg"/></li>
                 </ul>
+                
+               </div>
+            <a id ="link" style="text-align: center" href="./cliente.do?metodo=mostrarClientes" >
+            <img class="inn" src="./img/btnCompras.PNG" />
 
-            </div>
-            
-            <a id ="link" style="text-align: center"href="./cliente.do?metodo=mostrarClientes" >Ir de compras</a>
-
-	</section> <!-- / #main-content -->
- 
+           </a>
+            <a id ="link" style="text-align: center" href="./productos.do?metodo=mostrar" >
+                Produtos
+           </a>
+          
+        </section>
 	
+            
 	
 	<footer id="main-footer">
 		<p>&copy; 2017 <a>ShopyMarket.com</a></p>

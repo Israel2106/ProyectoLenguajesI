@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="miestilo.css">
-        <link rel="stylesheet" href="css/form.css" >
+        <link rel="stylesheet" href="css/global_css.css">
+        
         <title>registro</title>
         <script src="javascript/validar.js"></script>
     </head>

@@ -9,8 +9,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <!DOCTYPE html>
-<link rel= "stylesheet" href="css/estilo_tiendas.css"/>
-<link rel= "stylesheet" href="css/hoja_de_estilos_1.css"/>
+<link rel= "stylesheet" href="css/global_css.css"/>
 <html>
     <head
         
@@ -39,10 +38,10 @@
             <ul class="galeria">
                 <logic:iterate id="item" name="supermercados">
                     <li class="galeria_item">
-                        <img src="img/no-image.svg">                                          
-                        <label>  * <bean:write name="item" property="nombreEmpresa"/></label></br>
-                        <label>  * <bean:write name="item" property="telefono"/></label></br>
-                        <label>  <a href="#">Comprar aquí</a></label></br>
+                        <img class="foto" src="img/no-image.svg" style=" width: 95%">                                          
+                         <div class="lb">  * <bean:write name="item" property="nombreEmpresa"/></div>
+                         <div class="lb"> * <bean:write name="item" property="telefono"/></div>
+                         <div class="lb">  <a href="./productos.do?metodo=verProductos">Comprar aquí</a></div></br>
                     </li>
                 </logic:iterate>
              </ul> 

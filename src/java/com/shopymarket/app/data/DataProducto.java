@@ -92,12 +92,12 @@ public class DataProducto extends DataBase {
             con = this.getConection();
             try (PreparedStatement statement = con.prepareStatement(sql)) {
                 statement.setInt(1, 1);
-                statement.setInt(2, 2);
+                statement.setInt(2, 1);
                 statement.setString(3, producto.getNombre());
                 statement.setString(4, producto.getMarca());
                 statement.setInt(5, producto.getPrecio());
                 statement.setInt(6, producto.getCantidad());
-                statement.setString(7, "null");
+                statement.setString(7, producto.getImagen());
                 statement.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Inserta en BD");
             }
@@ -179,6 +179,7 @@ public class DataProducto extends DataBase {
                  producto.setPrecio(res.getInt("precio"));
                  producto.setMarca(res.getString("marca"));
                  producto.setIdCliente(res.getInt("idVendedor"));
+                 producto.setImagen(res.getString("imagen"));
              }
          } catch (SQLException ex) {
              Logger.getLogger(DataProducto.class.getName()).log(Level.SEVERE, null, ex);

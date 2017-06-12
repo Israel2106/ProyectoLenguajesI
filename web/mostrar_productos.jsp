@@ -14,19 +14,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-         <link rel= "stylesheet" href="css/estilos_productos.css"/>
+         <link rel= "stylesheet" href="css/global_css.css"/>
        
         <script src="js/jquery-3.2.1.min.js"type="text/javascript"></script>
        
     </head>
     <body>
-        <header>            
+        <header >            
             <a id="logo-header" href="./Inicio.html">
                 <span class="site-name">ShopyMarket</span>
 		<span class="site-desc">Tu Mercado Cerquitica</span>
             </a> <!-- / #logo-header -->
             
-             <nav>
+             <nav class="hprod">
 		<ul>
                     <li><a href="./registrarCliente.jsp">Registrar tienda</a></li>
                     <li><a href="#">Inicio</a></li>
@@ -35,26 +35,23 @@
 		</ul>
             </nav><!-- / nav -->
         </header>
-        
+        <form method="get" action="./productos.do">
+            <input type="hidden" value=""/>
         <ul class="galeria">
             
             <logic:iterate id="producto" name="lista">
                 <li class="galeria_item">
-                    <img src="<bean:write name="producto" property="imagen" />" style=" width: 100%" class="galeria_img" alt="<bean:write name="producto" property="nombre" />">                                          
-                    <label>  * <bean:write name="producto" property="nombre" /></label></br>
-                      <label>  * <bean:write name="producto" property="marca" /></label></br>
-                       <label>  * <bean:write name="producto" property="precio" /></label></br>
+                    <img class="foto" src="img/no-image.svg" style=" width: 95%" class="galeria_img" alt="<bean:write name="producto" property="imagen" />"/>                                          
+                    <div class="lb">  Nombre:  <bean:write name="producto" property="nombre" /></div>
+                    <div class="lb">  Marca: <bean:write name="producto" property="marca" /></div>
+                    <div class="lb">  Precio:₡ <bean:write name="producto" property="precio" /></div></br>
+                    <input type="submit" value="Comprar"/>  
                 </li> 
                 
-            </logic:iterate>
-                                                
+            </logic:iterate>                                              
         
         </ul> 
-        
-       
-       <script src="js/modal.js"></script>
-       
-       
+         </form>    
       
     </body>
 </html>

@@ -72,22 +72,19 @@ public class ProductosAction extends DispatchAction {
         marca= request.getParameter("marca");
         cantidad =Integer.parseInt(request.getParameter("cantidad"));
         categoria= (String)request.getParameter("id_categoria");
-        id_usuario= 2;
+        id_usuario= 2;// cambiar aquí
         String img = request.getParameter("url");
-        request.setAttribute("url", "img/man.png");
+        request.setAttribute("url", "img/no-image.svg");
         Producto producto = new Producto(categoria,cantidad,nombre,precio,marca,id_usuario);
         producto.setImagen(img);
         bProducto.insertar(producto);
-        LinkedList<String> categorias= bProducto.mostrarDatos("categoria");
-        request.setAttribute("categorias", categorias);
-        producto= new Producto("",0,"",0,"",0);
-        request.setAttribute("producto", producto);
+     
         
         }catch (Exception e){
              JOptionPane.showMessageDialog(null, "Error de algun" + e.getMessage());
         }
 
-        return mapping.findForward("ingresar");
+        return mapping.findForward("inicio");
     }
     
 
@@ -112,7 +109,7 @@ public class ProductosAction extends DispatchAction {
             throws Exception {
         //Productos por tienda en una lista
         
-        LinkedList<Producto> prod= bProducto.getListaProductos(2);
+        LinkedList<Producto> prod= bProducto.getListaProductos(1);
         
         System.out.println(prod.getFirst().getIdCategoria());
         LinkedList<String> categorias= bProducto.mostrarDatos("categoria");

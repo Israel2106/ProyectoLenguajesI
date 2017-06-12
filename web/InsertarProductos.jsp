@@ -14,6 +14,7 @@
     <head>
         <title>TODO supply a title</title>
         <link rel= "stylesheet" href="css/hoja_de_estilos_1.css"/>
+        <script src="js/jquery.min.js" type="text/javascript"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -36,34 +37,39 @@
             </nav><!-- / nav -->
         </header>
         
-        <% int idCliente = 1 ; %>
+        
         <div class="contForm">
         <section id="formulario">
            <h1> Insertar un Producto</h1>
-            <form method="get"  id="formularioProducto" action="./productos.do">
+           <form method="get"  id="formularioProducto" action="./productos.do" onsubmit="return validarFormProducto();">
             <input type="hidden" name="metodo" value="insertarProducto"/>
              <table id="tproductos"  cellspacing="11" align="left" >
                 
                 <tr>
                     <td>Nombre de Producto:</td>
-                    <td> <input type="text" name="nombre" required> </td>
+                    <td> <input type="text" id="nombre" name="nombre" >
+                        <div id="msj1" class="msjerror">Nombre incorrecto</div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Cantidad:</td>
-                    <td><input type="text" name="cantidad" required></td>
+                    <td><input type="text" id="cantidad" name="cantidad" required>
+                    <div id="msj2" class="msjerror">Solo números</div></td>
                 </tr>
                 <tr>
                     <td>Precio</td>
-                    <td><input type="text" name="precio" required></td>
+                    <td><input type="text" id="precio" name="precio" >
+                    <div id="msj3" class="msjerror">Sólo Números</div></td>
                 </tr>
                  <tr>
                     <td>Marca</td>
-                    <td><input type="text" name="marca" required></td>
+                    <td><input type="text" id="marca" name="marca" required>
+                    <div id="msj4" class="msjerror">Solo letras</div></td>
                 </tr>
                 
                 <tr>
                    <td>     
-                   <select name="id_categoria" >
+                       <select id="categoria" name="id_categoria" >
                       <logic:iterate name="categorias" id="i"> 
                         <option value="<bean:write name="i"/>">
                         <bean:write name="i"/>
@@ -78,7 +84,7 @@
                 </tr>
                 
                 <tr>
-                    <td> <input type="submit" value="Agregar"></td>                         
+                    <td> <input id="btnEnviarProducto" type="submit" value="Agregar"></td>                         
                 </tr>
                 
              </table>
@@ -100,7 +106,7 @@
         </section>
         </div>
        
-        
+        <script src="javascript/validar_productos.js"></script>
         
         <footer>
         <p>(c) 2017 ShopyMarket
