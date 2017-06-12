@@ -13,7 +13,7 @@
 <html>
     <head>
         <title>TODO supply a title</title>
-        <link rel= "stylesheet" href="css/hoja_de_estilos_1.css"/>
+        <link rel= "stylesheet" href="css/global_css.css"/>
         <script src="js/jquery.min.js" type="text/javascript"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,57 +38,44 @@
         </header>
         
         
-        <div class="contForm">
-        <section id="formulario">
-           <h1> Insertar un Producto</h1>
-           <form method="get"  id="formularioProducto" action="./productos.do" onsubmit="return validarFormProducto();">
-            <input type="hidden" name="metodo" value="insertarProducto"/>
-             <table id="tproductos"  cellspacing="11" align="left" >
+        
+        <h1 class="formulario-titulo"> Insertar un Producto</h1>
+           <form method="get"  id="formularioProducto" action="./productos.do"
+                 onsubmit="return validarFormProducto();" class="formulario">
+               <input class="f-in"type="hidden" name="metodo" value="insertarProducto"/>
+               
+            <div class="input-group">
+                <input class="f-in" type="text" id="nombre" name="nombre" >
+                <label for="nombre">Nombre:</label>
+            </div>
                 
-                <tr>
-                    <td>Nombre de Producto:</td>
-                    <td> <input type="text" id="nombre" name="nombre" >
-                        <div id="msj1" class="msjerror">Nombre incorrecto</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Cantidad:</td>
-                    <td><input type="text" id="cantidad" name="cantidad" required>
-                    <div id="msj2" class="msjerror">Solo números</div></td>
-                </tr>
-                <tr>
-                    <td>Precio</td>
-                    <td><input type="text" id="precio" name="precio" >
-                    <div id="msj3" class="msjerror">Sólo Números</div></td>
-                </tr>
-                 <tr>
-                    <td>Marca</td>
-                    <td><input type="text" id="marca" name="marca" required>
-                    <div id="msj4" class="msjerror">Solo letras</div></td>
-                </tr>
-                
-                <tr>
-                   <td>     
-                       <select id="categoria" name="id_categoria" >
-                      <logic:iterate name="categorias" id="i"> 
-                        <option value="<bean:write name="i"/>">
-                        <bean:write name="i"/>
-                        </option>
-                    </logic:iterate>
-                   </select>
-                   </td>
-                </tr>
-                <tr>
-                    <td><a href="./productos.do?metodo=seleccionarImagen">Insertar Imágen</a></td>
-                    <td> <img src="<bean:write name="url" />"  alt="imagen"></td>
-                </tr>
-                
-                <tr>
-                    <td> <input id="btnEnviarProducto" type="submit" value="Agregar"></td>                         
-                </tr>
-                
-             </table>
+            <div class="input-group">
+                <input class="f-in" type="text" id="cantidad" name="cantidad" >
+                <label for="cantidad">Cantidad:</label>
+            </div>
+            <div class="input-group">
+                <input class="f-in" type="text" id="precio" name="precio" >
+                <label for="precio">Precio:</label>
+            </div>
             
+            <div class="input-group">
+                <input class="f-in" type="text" id="marca" name="marca" >
+                <label for="marca">Marca:</label>
+            </div>
+            <div class="input-group">
+                <select id="categoria" name="id_categoria" >
+                    <logic:iterate name="categorias" id="i"> 
+                       <option value="<bean:write name="i"/>">
+                       <bean:write name="i"/>
+                       </option>
+                    </logic:iterate>
+                </select>
+            </div>                         
+            <div  class="input-group">
+                <a href="./productos.do?metodo=seleccionarImagen">Insertar Imágen</a>
+                <img src="<bean:write name="url" />"  alt="imagen">
+               <input id="btnEnviarProducto" type="submit" value="Agregar">                         
+            </div>
         </form>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>  
             <DIV ALIGN=rigth>
@@ -100,9 +87,6 @@
                 
             </form>
             </DIV>
-           
-            
-           
         </section>
         </div>
        

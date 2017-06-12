@@ -34,7 +34,8 @@ header nav {
     width: 99%;
     font-weight: bold;        
     font-size: 15px;
-    top: 0;   
+    top: 0; 
+    height: 100%;
   
 }
 header nav ul {
@@ -63,7 +64,7 @@ body {
     width: 98%;
     height: 100%;
     background: #FFFFFF;
-    padding: 20px;
+    
     color: black;
     text-align: left;
     overflow: auto;
@@ -138,6 +139,7 @@ footer {
     text-align: left;
     list-style: none;
    background-color: black;
+    box-shadow: 0 0 20px 1px rgba(0,0,0,0.3);
    
    
     
@@ -188,14 +190,41 @@ input[type=button], input[type=submit], input[type=reset] {
     margin-left: 30%;
 }
 
-#formulario{
-    
-    margin: 0 auto;
+
+.formulario{
+    width: 30%;
+    margin: auto;
+    max-width: 90%;
+    box-shadow: 0 0 20px 1px rgba(0,0,0,0.3);
+    position: relative;  
     text-align: center;
-    border-radius: 10px;
-    border: 1px solid #666666;
-    width: 500px;
+   
+    
 }
+.formulario-titulo{
+    text-align: center;
+    margin-top: 0;
+    
+}
+.input-group {
+    display: block;
+    width: 100%;
+    margin-bottom: 4px;
+        
+}
+.f-in {
+    padding: 6px;
+    border: #3498db;
+    display: block;
+    margin-left: 5%;
+    margin-top: 5px;
+    background: rgba(0,0,0,0.1);
+    width: 85%;
+}
+.f-in:focus{
+    outline: 1px solid rgba(0,0,0,0.3); 
+}
+
 #ae{
     text-decoration: overline;
     text-align: center;

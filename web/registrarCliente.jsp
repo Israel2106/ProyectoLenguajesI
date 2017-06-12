@@ -31,19 +31,21 @@
             </nav><!-- / nav -->
 
         </header>
-        <form id="formulario" method="get" action="./cliente.do" onsubmit="return validarFormCliente();">
-            <input type="hidden" value="setCliente" name="metodo">
+        <div id="contFormulario">
+        <form class="formulario" method="get" action="./cliente.do" onsubmit="return validarFormCliente();">
+            <input class="f-in" type="hidden" value="setCliente" name="metodo">
            Nombre de la empresa:<br>
-           <input id="nombre" type="text" name="nombre" required><br>
+           <input class="f-in" id="nombre" type="text" name="nombre" required><br>
            Número telefónico:<br>
-           <input id="telefono" type="text" name="telefono" required><br>
+           <input class="f-in" id="telefono" type="text" name="telefono" required><br>
            Email:<br>
-           <input id="email" type="email" name="email" required><br>
+           <input class="f-in" id="email" type="email" name="email" required><br>
            Contraseña:<br>
-           <input id="pass" type="password" name="pass" required><br>
+           <input class="f-in" id="pass" type="password" name="pass" required><br>
            Comprobar contraseña:<br>
-           <input id="vPass" type="password" name="vPass" required>
+           <input class="f-in" id="vPass" type="password" name="vPass" required>
            <input type="submit" value="inscribir" ><br>
        </form>
+            </div>
     </body>
 </html>
