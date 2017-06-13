@@ -41,6 +41,7 @@
             <forward name="error_correo" path="/recuperarcontrasena.jsp"/>
         </action>
         
+        
         <action parameter="metodo" path="/productos" type="com.shopymarket.app.action.ProductosAction" 
                 validate="false"
                 scope="request">
