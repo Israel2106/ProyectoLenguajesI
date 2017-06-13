@@ -95,15 +95,13 @@ public class ActionUsuarios extends DispatchAction {
               request.setAttribute("user_name", user);
               request.setAttribute("pass", pass);
         
-        return mapping.findForward("entro");
+        return mapping.findForward("comprador");
     }
     
-     public ActionForward userLogIn(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
+     public ActionForward userLogIn(ActionMapping mapping, ActionForm form,HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-         
-         
-         String userName = request.getParameter("user_name");
+          
+      String userName = request.getParameter("user_name");
       String pass= request.getParameter("pass");
       
       BussinessUsuarios bus = new BussinessUsuarios();
@@ -123,12 +121,11 @@ public class ActionUsuarios extends DispatchAction {
             sesion.setAttribute("email", email);
             sesion.setAttribute("direccion", direccion);
             sesion.setAttribute("pass", pass);
-            return mapping.findForward("entro");
-          
-          
-      
+            
+            
+             return mapping.findForward("comprador");
+           
       }else{
-        
             return mapping.findForward("error_log_in");
       }
       
@@ -164,12 +161,12 @@ public class ActionUsuarios extends DispatchAction {
             return mapping.findForward("error_correo");
             
         }else{
+
             
             bu.enviarMensaje(email, bu.recuperarContrasena(email));
             JOptionPane.showMessageDialog(null, "Revise su Correo");
             return mapping.findForward("error_log_in");
             
         }//else
-
     }
 }
