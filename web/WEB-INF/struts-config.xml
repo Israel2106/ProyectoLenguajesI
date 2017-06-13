@@ -36,7 +36,7 @@
                 validate="false"
                  scope="session">
             <forward name="error_log_in" path="/log_in.jsp"/>
-            <forward name="entro" path="/User_logueado/logueado.jsp"/>
+            <forward name="comprador" path="/User_logueado/logueado.jsp"/>
             <forward name="configuracion" path="/configuracionusuario.jsp"/>
             <forward name="error_correo" path="/recuperarcontrasena.jsp"/>
         </action>
