@@ -32,7 +32,8 @@
 
         </header>
         <div id="contFormulario">
-        <form class="formulario" method="get" action="./cliente.do" onsubmit="return validarFormCliente();">
+            
+        <form class="formulario" method="POST" action="./cliente.do" onsubmit="return validarFormCliente();">
             <input class="f-in" type="hidden" value="setCliente" name="metodo">
            Nombre de la empresa:<br>
            <input class="f-in" id="nombre" type="text" name="nombre" required><br>
