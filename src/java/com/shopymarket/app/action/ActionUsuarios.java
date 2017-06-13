@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionForward; 
 
 /**
- *
+ *autor emanuel jimenez salinas
  * @author EmmanuelJs
  */
 public class ActionUsuarios extends DispatchAction {
