@@ -96,7 +96,7 @@ public class DataUsuarios extends DataBase{
          
         String sql= "CALL pa_validarUser('"+user+"', '"+pass+"')";
         Usuarios usuario;
-        usuario = new Usuarios("", "", "", 0, "");
+        usuario = new Usuarios("", "", "", 0, "", "");
         try {
             con = this.getConection();
             CallableStatement cst = (CallableStatement) con.prepareCall(sql);
@@ -108,7 +108,7 @@ public class DataUsuarios extends DataBase{
                 usuario.setContrasena(rs.getString("pass"));
                 usuario.setId(rs.getInt("idUsuario"));
                 usuario.setDireccion(rs.getString("direccion"));
-           
+                usuario.setTipoU(rs.getString("tipoUsuario"));
             }
        
             cst.close();
@@ -130,7 +130,7 @@ public class DataUsuarios extends DataBase{
         String sql ="CALL pa_obtenerUsuario("+id+")";
         
         Usuarios usuarios;
-        usuarios = new Usuarios("", "", "", 0, "");
+        usuarios = new Usuarios("", "", "", 0, "","");
      
         try {
             con=this.getConection();
@@ -189,7 +189,7 @@ public class DataUsuarios extends DataBase{
          
         String sql= "CALL pa_validarUser('"+user+"', '"+pass+"')";
         Usuarios usuario;
-        usuario = new Usuarios("", "", "", 0, "");
+        usuario = new Usuarios("", "", "", 0, "","");
        
         try {
             con = this.getConection();
