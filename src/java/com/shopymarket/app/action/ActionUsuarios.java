@@ -40,7 +40,7 @@ public class ActionUsuarios extends DispatchAction {
         String pass = request.getParameter("pass");
         //int id = Integer.parseInt(request.getParameter("id"));
         String direccion = request.getParameter("direccion");
-       Usuarios usua = new Usuarios(email, user, pass, 0, direccion);
+       Usuarios usua = new Usuarios(email, user, pass, 0, direccion, "");
        BussinessUsuarios bu = new BussinessUsuarios();
        
         bu.enviarMensaje(email, "");//email= receptor del mensaje
@@ -84,7 +84,7 @@ public class ActionUsuarios extends DispatchAction {
         String direccion = request.getParameter("direccion");
        
         
-        Usuarios usua = new Usuarios(email, user, pass, id, direccion);
+        Usuarios usua = new Usuarios(email, user, pass, id, direccion, "");
         
         BussinessUsuarios bu = new BussinessUsuarios();
         bu.actualizarU(id, usua);
@@ -113,6 +113,7 @@ public class ActionUsuarios extends DispatchAction {
             String email= bus.userValidar(userName, pass).getEmail();
             int id=bus.userValidar(userName, pass).getId();
             String direccion=bus.userValidar(userName, pass).getDireccion();
+            String tipoU = bus.userValidar(userName, pass).getTipoU();
             
             HttpSession sesion = request.getSession(true);// inicio la sesion
  
@@ -122,8 +123,14 @@ public class ActionUsuarios extends DispatchAction {
             sesion.setAttribute("direccion", direccion);
             sesion.setAttribute("pass", pass);
             
+            if(tipoU.equals("Comprador")){
+                return mapping.findForward("comprador");
+            }else{
+                return mapping.findForward("moduloCliente");
+            }
             
-             return mapping.findForward("comprador");
+            
+             
            
       }else{
             return mapping.findForward("error_log_in");
