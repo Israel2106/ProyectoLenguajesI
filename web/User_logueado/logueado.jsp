@@ -31,15 +31,30 @@
                  <ul class="nav">
                     <li><a href="#">Acerca de</a></li>
                     <li><a href="#">Contacto</a></li>
-                    <%String nombre= ""+request.getParameter("user_name");
+                    <%
+                       HttpSession sesion = request.getSession(); 
+                       
+                          
+                       if(sesion.getAttribute("user_name")!= null && sesion.getAttribute("pass")!= null && sesion.getAttribute("email") != null && sesion.getAttribute("id")!=null &&sesion.getAttribute("direccion")!=null ){
+       
+                            String nombre= ""+sesion.getAttribute("user_name");
+                            String pass = ""+sesion.getAttribute("pass").toString();
+                            String email = ""+sesion.getAttribute("email").toString();
+                            int id = (int) sesion.getAttribute("id");
+                            String direccion = ""+sesion.getAttribute("direccion").toString();
+                            
+                       }else{
+                          
+                           out.print("<script>location.replace('../log_in.jsp');</script>");
+                           
+                           }
+                       %>
                     
-                    %>
-                    
-                    <li><a href="#">Hola! <%=nombre%></a>
+                    <li><a href="#">Hola! <%=sesion.getAttribute("user_name")%></a>
 				
                         <ul>
                         
-                            <li><a href="./usuarios.do?metodo=configuracionUs&email=<%= request.getAttribute("email")%>&user_name=<%= request.getAttribute("user_name")%>&pass=<%= request.getAttribute("pass")%>&id=<%= request.getAttribute("id")%>&direccion=<%= request.getAttribute("direccion")%>">Configuracion</a></li>
+                            <li><a href="../usuarios.do?metodo=configuracionUs&email=<%=sesion.getAttribute("email")%>&user_name=<%=sesion.getAttribute("user_name")%>&pass=<%=sesion.getAttribute("pass")%>&id=<%=sesion.getAttribute("id")%>&direccion=<%=sesion.getAttribute("direccion")%>">Configuracion</a></li>
                             <li><a href="log_in.html">cerrar Sesion</a></li>
 					
 			</ul>
@@ -73,7 +88,7 @@
         
         <footer id="main-footer">
 		<p>&copy; 2017 <a href="#">ShopyMarket.com</a></p>
-                <p>Configurar Cuenta:<a href="./usuarios.do?metodo=configuracionUs&email=<%= request.getAttribute("email")%>&user_name=<%= request.getAttribute("user_name")%>&pass=<%= request.getAttribute("pass")%>&id=<%= request.getAttribute("id")%>&direccion=<%= request.getAttribute("direccion")%>"><%=nombre%> </a></p>
+                <p>Configurar Cuenta:<a href="../usuarios.do?metodo=configuracionUs&email=<%= sesion.getAttribute("email")%>&user_name=<%= sesion.getAttribute("user_name")%>&pass=<%= sesion.getAttribute("pass")%>&id=<%= sesion.getAttribute("id")%>&direccion=<%= sesion.getAttribute("direccion")%>"><%=sesion.getAttribute("user_name")%> </a></p>
                 
 	</footer> <!-- / #main-footer -->
                 
