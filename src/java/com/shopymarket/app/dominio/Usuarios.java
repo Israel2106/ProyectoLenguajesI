@@ -16,13 +16,15 @@ public class Usuarios {
     private String contrasena;
     private int id;
     private String direccion;
+    private String tipoU; 
 
-    public Usuarios(String email, String userName, String contrasena, int id, String direccion) {
+    public Usuarios(String email, String userName, String contrasena, int id, String direccion, String tipoU) {
         this.email = email;
         this.userName = userName;
         this.contrasena = contrasena;
         this.id = id;
         this.direccion = direccion;
+        this.tipoU=this.tipoU;
 
     }
     
@@ -67,6 +69,16 @@ public class Usuarios {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
+    public String getTipoU() {
+        return tipoU;
+    }
+
+    public void setTipoU(String tipoU) {
+        this.tipoU = tipoU;
+    }
+    
+    
 
    
     
