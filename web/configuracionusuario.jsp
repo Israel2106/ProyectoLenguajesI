@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <script src="js/jquery.min.js" type="text/javascript"></script><!--importar para usar librerias de Jquery-->
+         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="stylesheet" href="css/login.css">
         
@@ -78,7 +80,22 @@
                             <label><strong>Eliminar Cuenta??</strong></label>
                             
                             <input type="hidden" name="id" value="<%= request.getAttribute("id") %>"/>
-                            <a href="./usuarios.do?metodo=eliminarUsuarios&id=<%= request.getAttribute("id")%>">Eliminar</a>
+                            
+                            
+                            <div id="capa"><a href="./usuarios.do?metodo=eliminarUsuarios&id=<%= request.getAttribute("id")%>">Eliminar</a></div>
+                                
+                                <div id="mensaje" style="display: none;">Esta opcion no es reversible !!</div>
+                                <script>
+                                   $("#capa").mouseenter(function(evento){
+                                    $("#mensaje").css("display", "block");
+                                 });
+                                 $("#capa").mouseleave(function(evento){
+                                    $("#mensaje").css("display", "none");
+                                }); 
+                                    
+                                </script>
+                                
+                            
                             
                             
                             <div><input class="btn" type="submit" name="actualizar" value="Guardar Cambios"/></div>
