@@ -7,7 +7,6 @@ package com.shopymarket.app.action;
 
 import com.shopymarket.app.bussiness.BussinessCliente;
 import com.shopymarket.app.dominio.Cliente;
-import java.sql.ResultSet;
 import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,11 +27,9 @@ public class ClienteAction extends DispatchAction {
      * This is the Struts action method called on
      * http://.../actionPath?method=myAction1, where "method" is the value
      * specified in <action> element : ( <action parameter="method" .../> )
-     */
-    public ActionForward setCliente(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-     
+     */ 
+   
+    public ActionForward setCliente(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
         String n=request.getParameter("nombre");
         String em=request.getParameter("email");
         String tel=request.getParameter("telefono");
@@ -77,14 +74,55 @@ public class ClienteAction extends DispatchAction {
     }
     
     
-        public ActionForward mostrarClientes(ActionMapping mapping, ActionForm form,
+    public ActionForward mostrarClientes(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
             BussinessCliente bc= new BussinessCliente("root", "");
             LinkedList<Cliente> supermercados= bc.obtenerTodosVendedores();
+            LinkedList<String> cantones = bc.obtenerCantones();
+            LinkedList<String> distritos = bc.obtenerDistritos();
             request.setAttribute("supermercados", supermercados);
-            
+            request.setAttribute("cantones", cantones);
+            request.setAttribute("distritos", distritos);
             
         return mapping.findForward("tiendas");
+    }
+    
+    public ActionForward mostrarClientesPorUbicacion(ActionMapping mapping, ActionForm form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+            String prov=request.getParameter("provincia");
+            String cant=request.getParameter("canton");
+            String dist=request.getParameter("distrito");
+            BussinessCliente bc= new BussinessCliente("root", "");
+            LinkedList<Cliente> supermercados= bc.obtenerVendedoresPorUbicacion(prov, cant, dist);
+            LinkedList<String> cantones = bc.obtenerCantones();
+            LinkedList<String> distritos = bc.obtenerDistritos();
+            request.setAttribute("supermercados", supermercados);
+            request.setAttribute("cantones", cantones);
+            request.setAttribute("distritos", distritos);
+            
+        return mapping.findForward("tiendas");
+    }
+    
+    public ActionForward setUbicacion(ActionMapping mapping, ActionForm form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+        String id= request.getParameter("idEmpresa");
+        String prov=request.getParameter("provincia");
+        String cant=request.getParameter("canton");
+        String dist=request.getParameter("distrito");
+        String esp=request.getParameter("especificacion");
+        
+        String n=request.getParameter("nombre");
+        String em=request.getParameter("email");
+        String tel=request.getParameter("telefono");
+        Cliente c = new Cliente(n, em, tel);
+        c.setId(Integer.parseInt(id));
+        BussinessCliente bc = new BussinessCliente("root", "");
+        bc.insertarUbicacionVendedor(id, prov, cant, dist, esp);
+        
+        request.setAttribute("cliente",c);
+        return mapping.findForward("moduloCliente");
     }
 }

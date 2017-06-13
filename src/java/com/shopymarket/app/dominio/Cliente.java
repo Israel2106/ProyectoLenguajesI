@@ -15,6 +15,10 @@ public class Cliente {
     String nombreEmpresa;
     String email;
     String telefono;
+    String provincia;
+    String canton;
+    String distrito;
+    String especificacion;
 
     public Cliente(String nombreEmpresa, String email, String telefono) {
         this.nombreEmpresa = nombreEmpresa;
@@ -53,6 +57,40 @@ public class Cliente {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    public String getCanton() {
+        return canton;
+    }
+
+    public void setCanton(String canton) {
+        this.canton = canton;
+    }
+
+    public String getDistrito() {
+        return distrito;
+    }
+
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
+    }
+
+    public String getEspecificacion() {
+        return especificacion;
+    }
+
+    public void setEspecificacion(String especificacion) {
+        this.especificacion = especificacion;
+    }
+    
+    
     
     
     
