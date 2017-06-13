@@ -9,6 +9,7 @@ import com.shopymarket.app.bussiness.BussinessUsuarios;
 import com.shopymarket.app.dominio.Usuarios;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import org.apache.struts.actions.DispatchAction;
@@ -102,29 +103,35 @@ public class ActionUsuarios extends DispatchAction {
             throws Exception {
          
          
-        String userName = request.getParameter("user_name");
-        String pass= request.getParameter("pass");
-       
-        request.setAttribute(userName, "user_name");
-        
-        
-        BussinessUsuarios bus = new BussinessUsuarios();
-        
-      String email= bus.userValidar(userName, pass).getEmail();
-      int id=bus.userValidar(userName, pass).getId();
-      String direccion=bus.userValidar(userName, pass).getDireccion();
-        
-        if(userName.equals(bus.userValidar(userName, pass).getUserName()) && bus.userValidar(userName, pass).getUserName() != "" && pass.equals(bus.userValidar(userName, pass).getContrasena()) && bus.userValidar(userName, pass).getContrasena() != ""){
-              request.setAttribute("id", id);
-              request.setAttribute("email", email);
-              request.setAttribute("direccion", direccion);
-              request.setAttribute("user_name", userName);
-              request.setAttribute("pass", pass);
-               return mapping.findForward("entro");
+         String userName = request.getParameter("user_name");
+      String pass= request.getParameter("pass");
+      
+      BussinessUsuarios bus = new BussinessUsuarios();
+   
+      if(bus.encontrarUsuario(userName, pass)){
+         
+            userName = bus.userValidar(userName, pass).getUserName();
+            pass = bus.userValidar(userName, pass).getContrasena();
+            String email= bus.userValidar(userName, pass).getEmail();
+            int id=bus.userValidar(userName, pass).getId();
+            String direccion=bus.userValidar(userName, pass).getDireccion();
+            
+            HttpSession sesion = request.getSession(true);// inicio la sesion
+ 
+            sesion.setAttribute("id", id);
+            sesion.setAttribute("user_name", userName);
+            sesion.setAttribute("email", email);
+            sesion.setAttribute("direccion", direccion);
+            sesion.setAttribute("pass", pass);
+            return mapping.findForward("entro");
           
-            }else{
-                 return mapping.findForward("error_log_in");
-          }
+          
+      
+      }else{
+        
+            return mapping.findForward("error_log_in");
+      }
+      
      }
      
       public ActionForward configuracionUs(ActionMapping mapping, ActionForm form,
