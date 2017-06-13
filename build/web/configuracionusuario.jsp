@@ -29,7 +29,7 @@
                             
                        }else{
                           
-                           out.print("<script>location.replace('../log_in.jsp');</script>");
+                           out.print("<script>location.replace('./log_in.jsp');</script>");
                            
                            }
                        %>
