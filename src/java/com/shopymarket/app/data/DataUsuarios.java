@@ -182,4 +182,46 @@ public class DataUsuarios extends DataBase{
         }
         return contrasena;
     }//metodo getEditorial
+  
+  
+   //********************************************
+     public boolean confirmarUsuario(String user, String pass){
+         
+        String sql= "CALL pa_validarUser('"+user+"', '"+pass+"')";
+        Usuarios usuario;
+        usuario = new Usuarios("", "", "", 0, "");
+       
+        try {
+            con = this.getConection();
+            CallableStatement cst = (CallableStatement) con.prepareCall(sql);
+            ResultSet rs=cst.executeQuery();
+         
+            while(rs.next()){
+                usuario.setEmail(rs.getString("email"));
+                usuario.setUserName(rs.getString("nombre"));
+                usuario.setContrasena(rs.getString("pass"));
+                usuario.setId(rs.getInt("idUsuario"));
+                usuario.setDireccion(rs.getString("direccion"));
+           
+            }
+
+            cst.close();
+            con.close();
+           
+            if(usuario.getUserName().equals("")){
+                return false;
+            
+            }else{
+                return true;
+            }
+           
+ 
+        } catch (SQLException ex) {
+          
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
+        return false;
+     
+     }
 }

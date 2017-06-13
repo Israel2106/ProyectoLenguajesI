@@ -71,4 +71,11 @@ public class BussinessUsuarios {
         return du.recuperarContrasena(email);
     
     }
+      
+       public boolean encontrarUsuario(String user, String pass){
+      DataUsuarios du = new DataUsuarios("root", "");
+      
+      return du.confirmarUsuario(user,pass);
+      
+      }
 }//class

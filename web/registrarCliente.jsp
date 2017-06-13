@@ -25,7 +25,7 @@
              <nav>
 		<ul>
                     <li><a href="./Inicio.html">Volver</a></li>
-                    <li><a href="log_in.html">Inicio Sesion</a></li>
+                    <li><a href="log_in.jsp">Inicio Sesion</a></li>
                     
 		</ul>
             </nav><!-- / nav -->
