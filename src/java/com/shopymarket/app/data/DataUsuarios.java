@@ -42,7 +42,7 @@ public class DataUsuarios extends DataBase{
             CallableStatement proc = (CallableStatement) con.prepareCall(sql);
             r = proc.executeQuery();
             if(r.next()){
-                JOptionPane.showMessageDialog(null, r.getString("resultado"));
+                
                 if(r.getString("resultado").equals("correo ya existe")){
                     inserto =false;    
                 }
