@@ -14,6 +14,25 @@
         <title>Configuracion Usuario</title>
     </head>
     <body>
+        
+         <%
+                       HttpSession sesion = request.getSession(); 
+                       
+                          
+                       if(sesion.getAttribute("user_name")!= null && sesion.getAttribute("pass")!= null && sesion.getAttribute("email") != null && sesion.getAttribute("id")!=null &&sesion.getAttribute("direccion")!=null ){
+       
+                            String nombre= ""+sesion.getAttribute("user_name");
+                            String pass = ""+sesion.getAttribute("pass").toString();
+                            String email = ""+sesion.getAttribute("email").toString();
+                            int id = (int) sesion.getAttribute("id");
+                            String direccion = ""+sesion.getAttribute("direccion").toString();
+                            
+                       }else{
+                          
+                           out.print("<script>location.replace('../log_in.jsp');</script>");
+                           
+                           }
+                       %>
      
         <header id="main-header">
             
