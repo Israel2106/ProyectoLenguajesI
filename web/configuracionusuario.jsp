@@ -82,7 +82,7 @@
                             <input type="hidden" name="id" value="<%= request.getAttribute("id") %>"/>
                             
                             
-                            <div id="capa"><a href="./usuarios.do?metodo=eliminarUsuarios&id=<%= request.getAttribute("id")%>">Eliminar</a></div>
+                            <div id="capa"><a style="margin:0"href="./usuarios.do?metodo=eliminarUsuarios&id=<%= request.getAttribute("id")%>">Eliminar</a></div>
                                 
                                 <div id="mensaje" style="display: none;">Esta opcion no es reversible !!</div>
                                 <script>
