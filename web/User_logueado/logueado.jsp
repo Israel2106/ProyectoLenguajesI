@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@page session="true" %>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +46,7 @@
                             
                        }else{
                           
-                           out.print("<script>location.replace('../log_in.jsp');</script>");
+                           out.print("<script>location.replace('./log_in.jsp');</script>");
                            
                            }
                        %>
@@ -54,8 +55,8 @@
 				
                         <ul>
                         
-                            <li><a href="../usuarios.do?metodo=configuracionUs&email=<%=sesion.getAttribute("email")%>&user_name=<%=sesion.getAttribute("user_name")%>&pass=<%=sesion.getAttribute("pass")%>&id=<%=sesion.getAttribute("id")%>&direccion=<%=sesion.getAttribute("direccion")%>">Configuracion</a></li>
-                            <li><a href="log_in.html">cerrar Sesion</a></li>
+                            <li><a href="./usuarios.do?metodo=configuracionUs&email=<%=sesion.getAttribute("email")%>&user_name=<%=sesion.getAttribute("user_name")%>&pass=<%=sesion.getAttribute("pass")%>&id=<%=sesion.getAttribute("id")%>&direccion=<%=sesion.getAttribute("direccion")%>">Configuracion</a></li>
+                            <li><a href="./log_in.jsp?cerrar=true">cerrar Sesion</a></li>
 					
 			</ul>
                     </li>
