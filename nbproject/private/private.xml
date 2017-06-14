@@ -6,12 +6,13 @@
             <file>file:/C:/Users/Israel/Documents/NetBeansProjects/ProyectoLenguajesI/web/Inicio.html</file>
         </group>
         <group name="Examen">
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/WEB-INF/struts-config.xml</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/Inicio.html</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/visorTiendas.jsp</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/css/hoja_de_estilos.css</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/css/css1.css</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/css/hoja_de_estilos_1.css</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/css/global_css.css</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/InsertarProductos.jsp</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/modificar_producto.jsp</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/mostrar_productos.jsp</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/css/estilo_tiendas.css</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/opciones_tienda.jsp</file>
         </group>
     </open-files>
 </project-private>

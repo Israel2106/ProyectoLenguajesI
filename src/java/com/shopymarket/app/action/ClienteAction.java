@@ -33,15 +33,19 @@ public class ClienteAction extends DispatchAction {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
      
-        String n=request.getParameter("nombre");
-        String em=request.getParameter("email");
-        String tel=request.getParameter("telefono");
-        String pass=request.getParameter("pass");
-        Cliente c = new Cliente(n, em, tel);
-        BussinessCliente bc = new BussinessCliente("root", "");
-        c.setId(bc.getNextID());
-        bc.insertarVendedor(n, em, tel,pass);
-        request.setAttribute("cliente",c);
+//        String n=request.getParameter("nombre");
+//        String em=request.getParameter("email");
+//        String tel=request.getParameter("telefono");
+//        String pass=request.getParameter("pass");
+//        Cliente c = new Cliente(n, em, tel);
+//        BussinessCliente bc = new BussinessCliente("root", "");
+//        c.setId(bc.getNextID());
+//        bc.insertarVendedor(n, em, tel,pass);
+//        request.setAttribute("cliente",c);
+
+            Cliente c = new Cliente("Nom","Mail","77888");
+            c.setId(Integer.parseInt("33"));
+            request.setAttribute("cliente",c);
         return mapping.findForward("moduloCliente");
     }
 
@@ -61,6 +65,7 @@ public class ClienteAction extends DispatchAction {
             c.setId(Integer.parseInt(id));
             BussinessCliente bc= new  BussinessCliente("root", "");
             bc.editarVendedor(c, id);
+           
             request.setAttribute("cliente",c);
         
         return mapping.findForward("moduloCliente");

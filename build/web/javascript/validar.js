@@ -58,6 +58,12 @@ function validarFormEditarCliente(){
         alert("asegurate de que el correo cumpla con el formato: ejemplo1@ejemplo2.ejemplo3");
         return false;
     }
+$(document).keyup(function (a) {
+    if(a.wich === 27){
+        $('.ventana').slideUp("fast");
+    }
+    
+});
 
     
     

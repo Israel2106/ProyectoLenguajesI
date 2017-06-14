@@ -70,10 +70,10 @@
                        </option>
                     </logic:iterate>
                 </select>
+                <label for="categoria">Categoría</label>
             </div>                         
             <div  class="input-group">
                 <a href="./productos.do?metodo=seleccionarImagen">Insertar Imágen</a>
-                <img src="<bean:write name="url" />"  alt="imagen">
                <input id="btnEnviarProducto" type="submit" value="Agregar">                         
             </div>
         </form>

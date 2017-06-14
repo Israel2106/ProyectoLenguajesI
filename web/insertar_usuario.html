@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel= "stylesheet" href="css/login.css"/>
+        <link rel= "stylesheet" href="css/global_css.css"/>
 
    </head>
     
@@ -49,25 +49,25 @@ and open the template in the editor.
     
 	
                     
-        <form  method="POST" action="./usuarios.do" autocomplete="on" name="finsertar" onsubmit=" return comprobarClave()">
-                            <input type="hidden" name="metodo" value="insertarUsuarios"/>
+        <form  class="formulario" method="POST" action="./usuarios.do" autocomplete="on" name="finsertar" onsubmit=" return comprobarClave()">
+                            <input type="hidden" name="metodo" value="insertarUsuarios" />
                             
 				<h1> Registro: </h1> 
 				
 					<label>Nombre Usuario </label>
-					<input name="user" required="required" type="text" placeholder="minombreusuario" />
+					<input class="f-in" name="user" required="required" type="text" placeholder="minombreusuario" />
 				
 					<label>Correo </label>
-					<input name="email" required="required" type="email" placeholder="micorreo@mail.com"/> 
+					<input class="f-in" name="email" required="required" type="email" placeholder="micorreo@mail.com"/> 
 				
 					<label>Contraseña </label>
-					<input name="pass" required="required" type="password" placeholder="ej.X8df90EO"/>
+					<input class="f-in" name="pass" required="required" type="password" placeholder="ej.X8df90EO"/>
 				
 					<label >Confirmar Contraseña </label>
-					<input name="passwordsignup_confirm" required="required" type="password" placeholder="ej.X8df90EO"/>
+					<input class="f-in" name="passwordsignup_confirm" required="required" type="password" placeholder="ej.X8df90EO"/>
 				 
 					<label> Direccion </label>
-					<input name="direccion" required="required" type="text" placeholder="Limon Pococí Guapíles"/> 
+					<input class="f-in" name="direccion" required="required" type="text" placeholder="Limon Pococí Guapíles"/> 
 				
                                 
 				<p class="signin_button"> 
