@@ -6,12 +6,13 @@
             <file>file:/C:/Users/Israel/Documents/NetBeansProjects/ProyectoLenguajesI/web/Inicio.html</file>
         </group>
         <group name="Examen">
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/WEB-INF/struts-config.xml</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/Inicio.html</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/css/global_css.css</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/InsertarProductos.jsp</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/modificar_producto.jsp</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ProyectoLenguajesI/web/mostrar_productos.jsp</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/configuracionusuario.jsp</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/User_logueado/logueado.jsp</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/moduloCliente.jsp</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/registrarCliente.jsp</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/com/shopymarket/app/action/ActionUsuarios.java</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/WEB-INF/struts-config.xml</file>
+            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/com/shopymarket/app/action/ClienteAction.java</file>
         </group>
     </open-files>
 </project-private>

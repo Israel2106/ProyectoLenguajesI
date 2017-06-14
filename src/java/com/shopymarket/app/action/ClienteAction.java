@@ -37,10 +37,15 @@ public class ClienteAction extends DispatchAction {
         String em=request.getParameter("email");
         String tel=request.getParameter("telefono");
         String pass=request.getParameter("pass");
+        
         Cliente c = new Cliente(n, em, tel);
+        
         BussinessCliente bc = new BussinessCliente("root", "");
+        
         c.setId(bc.getNextID());
+        
         bc.insertarVendedor(n, em, tel,pass);
+        
         request.setAttribute("cliente",c);
         return mapping.findForward("moduloCliente");
     }

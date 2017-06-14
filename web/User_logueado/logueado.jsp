@@ -12,13 +12,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/jquery.min.js" type="text/javascript"></script>
         <title>sigin</title>
        <link rel="stylesheet" href="css/inicio.css">
-       
-       
-        
+       <link rel="stylesheet" href="css/ejemplomodal.css">
+   
     </head>
     <body>
+        
+                <%
+                HttpSession sesion = request.getSession(); 
+                if(sesion.getAttribute("user_name")!= null && sesion.getAttribute("pass")!= null && sesion.getAttribute("email") != null && sesion.getAttribute("id")!=null &&sesion.getAttribute("direccion")!=null ){ 
+                    String nombre= ""+sesion.getAttribute("user_name");
+                    String pass = ""+sesion.getAttribute("pass").toString();
+                    String email = ""+sesion.getAttribute("email").toString();
+                    int id = (int) sesion.getAttribute("id");
+                    String direccion = ""+sesion.getAttribute("direccion").toString();
+                            
+                }else{
+                          
+                    out.print("<script>location.replace('./log_in.jsp');</script>");
+                           
+                     }
+                %>
         <header id="main-header">
             
             <a id="logo-header" href="#">
@@ -32,24 +48,7 @@
                  <ul class="nav">
                     <li><a href="#">Acerca de</a></li>
                     <li><a href="#">Contacto</a></li>
-                    <%
-                       HttpSession sesion = request.getSession(); 
-                       
-                          
-                       if(sesion.getAttribute("user_name")!= null && sesion.getAttribute("pass")!= null && sesion.getAttribute("email") != null && sesion.getAttribute("id")!=null &&sesion.getAttribute("direccion")!=null ){
-       
-                            String nombre= ""+sesion.getAttribute("user_name");
-                            String pass = ""+sesion.getAttribute("pass").toString();
-                            String email = ""+sesion.getAttribute("email").toString();
-                            int id = (int) sesion.getAttribute("id");
-                            String direccion = ""+sesion.getAttribute("direccion").toString();
-                            
-                       }else{
-                          
-                           out.print("<script>location.replace('./log_in.jsp');</script>");
-                           
-                           }
-                       %>
+                    
                     
                     <li><a href="#">Hola! <%=sesion.getAttribute("user_name")%></a>
 				
@@ -67,6 +66,8 @@
         </header>
                     
         <section id="main-content">
+            
+            
 	
 		<article>
 			<header>
@@ -92,8 +93,10 @@
                 <p>Configurar Cuenta:<a href="../usuarios.do?metodo=configuracionUs&email=<%= sesion.getAttribute("email")%>&user_name=<%= sesion.getAttribute("user_name")%>&pass=<%= sesion.getAttribute("pass")%>&id=<%= sesion.getAttribute("id")%>&direccion=<%= sesion.getAttribute("direccion")%>"><%=sesion.getAttribute("user_name")%> </a></p>
                 
 	</footer> <!-- / #main-footer -->
+        
+        
                 
-                
+       
             
     </body>
 </html>
