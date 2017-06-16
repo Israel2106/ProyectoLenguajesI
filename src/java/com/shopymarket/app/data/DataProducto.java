@@ -65,9 +65,7 @@ public class DataProducto extends DataBase {
            
                 PreparedStatement statement = con.prepareStatement(sql); 
                 ResultSet re = statement.executeQuery();  
-                //statement.executeUpdate();
-               
-          
+                //statement.executeUpdate();         
             if(re!= null){
             while(re.next() == true) {
                 lista.add(re.getString("nombre"));                                
@@ -82,24 +80,30 @@ public class DataProducto extends DataBase {
      return lista;
     }
     
-    public boolean insertar(Producto producto){
+    public boolean insertar(Producto p){
         boolean inserto = true;    
-        String sql= "INSERT INTO producto(idCategoria,idVendedor,nombre,marca,precio,cantidad,imagen) "
-                + "VALUES (?,?,?,?,?,?,?)";
-       
         
+       String sql = "CALL insertar_producto('"+p.getIdCategoria()+"',"+p.getCantidad()+",'"+p.getNombre()+"',"
+               + ""+p.getPrecio()+",'"+p.getMarca()+"',"+p.getIdCliente()+",'"+p.getImagen()+"')";
+        String msj ="";       
+
+        ResultSet result;
         try {
-            con = this.getConection();
-            try (PreparedStatement statement = con.prepareStatement(sql)) {
-                statement.setInt(1, 1);
-                statement.setInt(2, 1);
-                statement.setString(3, producto.getNombre());
-                statement.setString(4, producto.getMarca());
-                statement.setInt(5, producto.getPrecio());
-                statement.setInt(6, producto.getCantidad());
-                statement.setString(7, producto.getImagen());
-                statement.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Inserta en BD");
+            
+             con = this.getConection();       
+            CallableStatement proc = con.prepareCall(sql);
+            
+            result = proc.executeQuery(sql);
+           
+             if(result.next()){
+                
+                if(result.getString("resultado").equals("el nombre ya existe")){
+                    inserto =false;
+                    msj =result.getString("resultado");
+                }else {
+                    inserto =false;
+                    msj =result.getString("resultado");
+                }
             }
             con.close();
         } catch (SQLException ex) {

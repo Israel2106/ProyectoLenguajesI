@@ -12,7 +12,7 @@
         <title>Log In</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel= "stylesheet" href="css/inicio.css"/>
+        <link rel= "stylesheet" href="css/global_css.css"/>
     </head>
     <body>
         
@@ -40,7 +40,7 @@
         <div class="container">
             <img src="img/man.png"/>
             
-            <form method="POST" action="./usuarios.do">
+            <form method="POST" action="./usuarios.do" class="formulario">
                 <input type="hidden" name="metodo" value="userLogIn"/>
                 
                 <div class="form-input">

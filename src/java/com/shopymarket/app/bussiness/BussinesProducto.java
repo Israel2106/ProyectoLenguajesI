@@ -56,8 +56,8 @@ public class BussinesProducto {
     return  dProducto.mostrarDatos(tabla);
     }
     
-    public void insertar(Producto producto){
-    dProducto.insertar(producto);
+    public boolean insertar(Producto producto){
+    return dProducto.insertar(producto);
     }
 
     public void eliminar(int codigo){

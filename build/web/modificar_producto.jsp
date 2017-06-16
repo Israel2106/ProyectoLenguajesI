@@ -8,16 +8,18 @@
 <%@taglib prefix="bean" uri="http://struts.apache.org/tags-bean"%>
 <%@taglib prefix="logic" uri="http://struts.apache.org/tags-logic"%>
 <!DOCTYPE html>
-<html>
+<html  ng-app="app">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel= "stylesheet" href="css/global_css.css"/>
          <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+         <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+         <script type="text/javascript" src="javascript/paginacion_angular.js"></script>
         <title>JSP Page</title>
         
         
     </head>
-    <body>
+    <body >
         <header>            
             <a id="logo-header" href="./Inicio.html">
                 <span class="site-name">ShopyMarket</span>
@@ -33,31 +35,33 @@
 		</ul>
             </nav><!-- / nav -->
         </header>
-        <form method="get" action="./productos.do">
-        <ul class="galeria">
+        
+        <form method="get" action="./productos.do" ng-controller="control">
+            <center> Buscar: <input class="buscador" ng-model="buscar" type="text"/></center>
+        <ul class="galeria" >
             
-            <logic:iterate id="prod" name="produ">
-                
-                    <li class="galeria_item">
+           
+                <li class="galeria_item" ng-repeat="producto in productos  | filter:buscar" >
                         <input type="hidden" name="metodo" value="modificar"/>
-                        <input type="hidden" name="idCliente"  value="<bean:write name="prod" property="idCliente"/>"/>
-                        <input type="hidden" name="idProducto" value="<bean:write name="prod" property="idProducto"/>"/>
-                        <img class="foto" src="img/no-image.svg" style=" width: 95%" class="galeria_img" alt="<bean:write name="prod" property="imagen" />"/>
-                        <div class="lb">  Nombre: </div>
-                    <center><div class="lb"><input class="lbe" type="text" name="nombre" value="<bean:write name="prod" property="nombre"/>"/></div></center>
+                        <input type="hidden" name="idCliente"  value="{{producto.idCliente}}"/>
+                        <input type="hidden" name="idProducto" value="{{producto.idProducto}}"/>
+                        <img class="foto" src="img/no-image.svg" style=" width: 95%" class="galeria_img" alt="{{producto.imagen}}"/>
+                        <div class="lb"> Nombre: </div>
+                    <center><div class="lb"><input class="lbe" type="text" name="nombre" value="{{producto.nombre}}"/></div></center>
                         <div class="lb">  Marca  </div>
-                       <center> <div class="lb"><input  type="text" name="marca" value="<bean:write name="prod" property="marca"/>"/></div></center>
+                        <center> <div class="lb"><input  type="text" name="marca" value="{{producto.marca}}"/></div></center>
                         <div class="lb">  Cantidad  </div>
-                         <center><div class="lb"><input type="text" name="cantidad" value="<bean:write name="prod" property="cantidad"/>"/></div></center>
+                         <center><div class="lb"><input type="text" name="cantidad" value="{{producto.cantidad}}"/></div></center>
                          <div class="lb">  Precio  </div>
-                         <center><div class="lb"><input type="text" name="precio" value="<bean:write name="prod" property="precio"/>"/></div></center>
+                         <center><div class="lb"><input type="text" name="precio" value="{{producto.precio}}"/></div></center>
                         <input type="submit"  value="Modificar"/>
                     </li> 
                
-            </logic:iterate>            
+                   
         
         </ul> 
           </form>
+       
                  
     </body>
 </html>

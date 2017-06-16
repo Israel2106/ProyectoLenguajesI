@@ -41,7 +41,7 @@
                         <img class="foto" src="img/no-image.svg" style=" width: 95%">                                          
                          <div class="lb">  * <bean:write name="item" property="nombreEmpresa"/></div>
                          <div class="lb"> * <bean:write name="item" property="telefono"/></div>
-                         <div class="lb">  <a href="./productos.do?metodo=verProductos">Comprar aquí</a></div></br>
+                         <div class="lb">  <a href="./productos.do?metodo=verProductos&id=<bean:write name="item" property="id"/>">Comprar aquí</a></div></br>
                     </li>
                 </logic:iterate>
              </ul> 

@@ -10,10 +10,23 @@ package com.shopymarket.app.dominio;
  * @author usuario
  */
 public class Categoria {
+    int idCategoria;
     String nombre;
 
     public Categoria(String nombre) {
         this.nombre = nombre;
+        
+    }
+
+    public Categoria() {
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getNombre() {

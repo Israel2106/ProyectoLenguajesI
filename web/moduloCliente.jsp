@@ -11,61 +11,94 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
-        <link rel="stylesheet" href="css/css1.css">
+        <link rel="stylesheet" href="css/global_css.css">
         <script src="js/jquery.min.js" type="text/javascript"></script>
+         <script src="js/jquery-3.2.1.min.js"type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript">
             function abrirVentanaUbicaciones(){
-                $(".ventanaUbicaciones").slideDown("fast");
+                $("#ventanaUbicaciones").slideDown("fast");
             }
             
             function cerrarVentanaUbicaciones(){
-                $(".ventanaUbicaciones").slideUp("fast");
+                $("#ventanaUbicaciones").slideUp("fast");
             }
             
             function abrirVentanaEliminarCuenta(){
-                $(".ventanaEliminarCuenta").slideDown("fast");
+                $("#ventanaEliminarCuenta").slideDown("fast");
             }
             
             function cerrarVentanaEliminarCuenta(){
-                $(".ventanaEliminarCuenta").slideUp("fast");
+                $("#ventanaEliminarCuenta").slideUp("fast");
             }
             
             function abrirVentanaEditarInformacion(){
-                $(".ventanaEditarInformacion").slideDown("fast");
+                $("#ventanaEditarInfo").slideDown("fast");
             }
             
             function cerrarVentanaEditarInformacion(){
-                $(".ventanaEditarInformacion").slideUp("fast");
+                $("#ventanaEditarInfo").slideUp("fast");
             }
-            
+            $(document).keyup(function (a) {
+    if(a.wich === 27){
+        $('.ventana').slideUp("fast");
+    }
+    
+});
+           
         </script>
         <title>Bienvenido</title>
         <header id="main-header">
-             <a id="logo-header" >
+             <a id="logo-header" href="Inicio.html" >
                 <span class="site-name">ShopyMarket</span>
 		<span class="site-desc">Tu Mercado Cerquitica</span>
             </a>
         
              <nav>
 		<ul>
-                    <li><a href="./productos.do?metodo=mostrar">Agregar Producto</a></li>
-                    <li><a href="javascript:abrirVentanaUbicaciones();">Agregar Ubicacion</a></li>
-                    <li><a href="javascript:abrirVentanaEditarInformacion();">Editar mi Informacion</a></li>
-                    <li><a href="javascript:abrirVentanaEliminarCuenta()">Eliminar mi cuenta</a></li>
+                    <li><a href="./productos.do?metodo=mostrar">Aqui debe ir perfil, para desloguearse, sesion</a></li>
+                    
 		</ul>
             </nav>
             
         </header>
     
-        <script src="javascript/validar.js"></script>
+        
     </head>
     <body>
-        <h1>Le damos la bienvenida a <bean:write name="cliente" property="nombreEmpresa"/>
+    <center><h1>Le damos la bienvenida a <bean:write name="cliente" property="nombreEmpresa"/>
             a nuestra plataforma
-        </h1>
-        <div class="ventanaUbicaciones">
+        </h1></center>
+            
+            
+             <ul class="grupo_botones">
+                    
+                 <a href="./productos.do?metodo=mostrar">
+                    <li class="btones" href="./productos.do?metodo=mostrar">                                                                 
+                        <div class="botones_cli"> </br></br>Agregar Productos </div>
+                    </li>
+                </a>
+                   <a href="javascript:abrirVentanaEditarInformacion();">
+                    <li class="btones" href="./productos.do?metodo=mostrar" background-color="red">                                                                 
+                        <div class="botones_cli"></br></br>Editar mi Información</div>
+                    </li>
+                </a>
+                 <a href="javascript:abrirVentanaUbicaciones();">
+                    <li class="btones" href="./productos.do?metodo=mostrar">
+                                                                 
+                        <div class="botones_cli">
+                            </br></br>Ubicaciones 
+                        </div>
+                    </li>
+                </a>
+                   <a href="javascript:abrirVentanaEliminarCuenta()">
+                    <li class="btones" href="./productos.do?metodo=mostrar">                                                                 
+                        <div class="botones_cli"> </br></br>Eliminar Cuenta</div>
+                    </li>
+                </a>
+            </ul> 
+            
+            <div class="ventana" id="ventanaUbicaciones">
             <div class="form">
                 <div class="cerrar"><a href="javascript:cerrarVentanaUbicaciones();">X</a></div>
                 <h1>Nueva ubicacion</h1>
@@ -81,7 +114,7 @@
             </div>
         </div>
         
-        <div class="ventanaEliminarCuenta">
+            <div class="ventana" id="ventanaEliminarCuenta">
             <div class="form">
                 <div class="cerrar"><a href="javascript:cerrarVentanaEliminarCuenta();">X</a></div>
                 <h1>Eliminar su cuenta?</h1>
@@ -97,8 +130,10 @@
             </div>
             
         </div>
+                
+                       
         
-         <div class="ventanaEditarInformacion">
+        <div class="ventana" id="ventanaEditarInfo">
             <div class="form">
                 <div class="cerrar"><a href="javascript:cerrarVentanaEditarInformacion();">X</a></div>
                 <h1>Modifique sus datos aqui</h1>
@@ -126,7 +161,7 @@
             
         </div>
         
-        
+        <script src="javascript/validar.js"></script>
         
     </body>
 </html>

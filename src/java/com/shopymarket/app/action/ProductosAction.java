@@ -6,6 +6,7 @@
 package com.shopymarket.app.action;
 
 
+import com.google.gson.Gson;
 import com.shopymarket.app.bussiness.BussinesProducto;
 import com.shopymarket.app.data.DataCategoria;
 import com.shopymarket.app.dominio.Producto;
@@ -19,6 +20,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
 import java.io.*;
+import org.json.JSONObject;
 
 /**
  *
@@ -29,13 +31,14 @@ public class ProductosAction extends DispatchAction {
     /* forward name="success" path="" */
     private final static String SUCCESS = "success";
     BussinesProducto bProducto = new BussinesProducto();
-    DataCategoria dCategoria = new DataCategoria("root", "");
+//    DataCategoria dCategoria = new DataCategoria("root", "");
     String nombre="";
         int precio=0 ;
         String marca="";
         int cantidad=0; 
         String categoria="";
-        int id_usuario= 1;   
+        int id_usuario= 1;  
+        String estado="";
     
 
     /**
@@ -48,12 +51,13 @@ public class ProductosAction extends DispatchAction {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         try{     
-       
+            
             LinkedList<String> categorias= bProducto.mostrarDatos("categoria");
             Producto producto= new Producto("",0,"",0,"",0);
             request.setAttribute("producto", producto);
             request.setAttribute("categorias", categorias);
             request.setAttribute("url", "img/no-image.svg");
+            request.setAttribute("estado", estado);
                   
         }catch (Exception e){
              JOptionPane.showMessageDialog(null, "Error de algun numero" + e.getMessage());
@@ -77,13 +81,22 @@ public class ProductosAction extends DispatchAction {
         request.setAttribute("url", "img/no-image.svg");
         Producto producto = new Producto(categoria,cantidad,nombre,precio,marca,id_usuario);
         producto.setImagen(img);
-        bProducto.insertar(producto);
+        
+        
+        if(bProducto.insertar(producto)){
+            estado = "Se ha insertado";
+            request.setAttribute("estado", estado);
+        }else {
+             estado = "el nombre ya existe, intente otro";
+            request.setAttribute("estado", estado);
+        }
+       
      
         
         }catch (Exception e){
              JOptionPane.showMessageDialog(null, "Error de algun" + e.getMessage());
         }
-
+        estado= "";
         return mapping.findForward("inicio");
     }
     
@@ -97,9 +110,11 @@ public class ProductosAction extends DispatchAction {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        //int id=  Integer.parseInt(request.getParameter("idCliente"));
-        LinkedList<Producto> listaproductos= bProducto.getListaProductos(1);
+        int id=  Integer.parseInt(request.getParameter("id"));
+        LinkedList<Producto> listaproductos= bProducto.getListaProductos(id);
         request.setAttribute("lista", listaproductos);
+        new ProductosAction().escribirJSON(listaproductos);
+        
         
         return mapping.findForward("mostrar");
     }
@@ -109,11 +124,10 @@ public class ProductosAction extends DispatchAction {
             throws Exception {
         //Productos por tienda en una lista
         
-        LinkedList<Producto> prod= bProducto.getListaProductos(1);
-        
-        System.out.println(prod.getFirst().getIdCategoria());
+        LinkedList<Producto> prod= bProducto.getListaProductos(2);       
         LinkedList<String> categorias= bProducto.mostrarDatos("categoria");
-         
+        
+        new ProductosAction().escribirJSON(prod);
                request.setAttribute("categorias", categorias);
                request.setAttribute("produ", prod);
             
@@ -130,7 +144,7 @@ public class ProductosAction extends DispatchAction {
 
                  
          Producto p = new Producto (request.getParameter("nombre"),request.getParameter("marca"),
-                 Integer.parseInt(request.getParameter("cantidad")),Integer.parseInt(request.getParameter("precio")));
+         Integer.parseInt(request.getParameter("cantidad")),Integer.parseInt(request.getParameter("precio")));
          
          bProducto.actualizar(idproducto, idCliente, p);
 
@@ -148,22 +162,30 @@ public class ProductosAction extends DispatchAction {
         return mapping.findForward("ver_producto");
     }
     
-     
-     
-     public ActionForward seleccionarImagen(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-            LinkedList<String> categorias= bProducto.mostrarDatos("categoria");
-            Producto producto= new Producto("",0,"",0,"",0);
-            request.setAttribute("producto", producto);
-            request.setAttribute("categorias", categorias);
-            String imagen=  "img/man.png";//bProducto.seleccionarImagenes();
-            
-            request.setAttribute("url", imagen);
-                      
-        return mapping.findForward("ingresar");
+      public void escribirJSON(LinkedList<Producto> lista){
+        
+        Gson gson = new Gson();
+        String list = gson.toJson(lista);
+         
+        try {
+           FileWriter fw = new FileWriter("C:\\Users\\Hector Zuñiga\\Documents\\NetBeansProjects\\ProyectoLenguajesI\\web\\json\\productos.json",true);
+           BufferedWriter bw = new BufferedWriter(fw);
+           bw.write("");
+            bw.close();
+           FileWriter file = new FileWriter("C:\\Users\\Hector Zuñiga\\Documents\\NetBeansProjects\\ProyectoLenguajesI\\web\\json\\productos.json");
+           file.write(list);
+            file.flush();
+            file.close();
+           
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Entra al jason"+list.toString());
     }
-    
 }
+     
+     
+    
+
 
 

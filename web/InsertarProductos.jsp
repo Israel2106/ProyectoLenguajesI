@@ -46,7 +46,8 @@
                
             <div class="input-group">
                 <input class="f-in" type="text" id="nombre" name="nombre" >
-                <label for="nombre">Nombre:</label>
+                <label for="nombre">Nombre:</label></br>
+                <label ><bean:write name="estado" /></label>
             </div>
                 
             <div class="input-group">
@@ -73,20 +74,20 @@
             </div>                         
             <div  class="input-group">
                 <a href="./productos.do?metodo=seleccionarImagen">Insertar Imágen</a>
-                <img src="<bean:write name="url" />"  alt="imagen">
-               <input id="btnEnviarProducto" type="submit" value="Agregar">                         
+               
+                <input id="btnEnviarProducto" type="submit" value="Agregar" onclick="">                         
             </div>
         </form>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>  
-            <DIV ALIGN=rigth>
-                
+            <div>
+                <label id="label_estado"><bean:write name="estado" /></label>
             <form method="get" action="./productos.do">
                         
                 <input type="submit" value="ver Productos" >
                 <input type="hidden" name="metodo" value="verProductos">
                 
             </form>
-            </DIV>
+            </div>
         </section>
         </div>
        

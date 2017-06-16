@@ -11,61 +11,102 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
  * @author usuario
  */
-public class DataCategoria extends DataBase{
+public class DataCategoria extends HibernateUtil{
     
-    Connection con;
-    PreparedStatement ps;
-    public DataCategoria(String user, String pass) {
-        super(user, pass);
-    }
+   
     
-    public boolean insertar(Categoria categoria){
-        boolean inserta= true;
-        String sql = "insert into categoria(nombre) values (?)";
-        try {
-            con= this.getConection();
-            ps= con.prepareStatement(sql);
-            ps.setString(1, categoria.getNombre());
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DataCategoria.class.getName()).log(Level.SEVERE, null, ex);
-            inserta = false;
-        }
+    public void insert(Object o){
+    
+        Transaction transaction = null;
+        Session session = this.getSessionFactory().openSession();
         
-        return inserta;
+        try{
+        
+            transaction = session.beginTransaction();
+            session.save(o);
+            transaction.commit();
+        }catch(HibernateException he){
+        
+            if(transaction!= null){
+                transaction.rollback();
+            }
+            he.printStackTrace();
+        }finally{
+            session.close();
+        }
     }
     
-    public int consultar(String categoria){
+     public ArrayList<Categoria> getEstudiantes(){
     
-        Producto producto;
-        int idCategoria=0;
-        producto= new Producto("",0,"",0,"",0);
-         try {
-             String consulta = "SELECT idCategoria from producto p inner join categoria c on p.idCategoria = c.idCategoria"
-                + "where c.nombre = ?";
-             
-             con = this.getConection();
-             
-             PreparedStatement statement = con.prepareStatement(consulta);
-             statement.setString(1,categoria);
-             statement.setInt(2, 1);
-             ResultSet res = statement.executeQuery();
-                  
-             while(res.next()){
-                idCategoria= res.getInt("idCategoria");
-                 
-             }
-         } catch (SQLException ex) {
-             Logger.getLogger(DataProducto.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         return idCategoria;       
-    }    
+        ArrayList<Categoria> categorias = new ArrayList();
+        Transaction transaction = null;
+        Session session = this.getSessionFactory().openSession();
+        
+        try{
+        
+            transaction = session.beginTransaction();
+            categorias = (ArrayList<Categoria>) session.createQuery("FROM Categoria").list();
+            for(Categoria c: categorias){
+                System.out.println(c.getIdCategoria());
+            }
+            transaction.commit();
+        }catch(HibernateException he){
+        
+            if(transaction!= null){
+                transaction.rollback();
+            }
+            he.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return categorias;
+    }
+    public static void main(String args []){
+        DataCategoria dcat= new DataCategoria();
+        Categoria categoria = new Categoria("Licores");
+        
+        dcat.insert(categoria);
+        dcat.getEstudiantes();
+    }
+    
+    
+//     public int consultar(String categoria){
+//    
+//        Producto producto;
+//        int idCategoria=0;
+//        producto= new Producto("",0,"",0,"",0);
+//         try {
+//             String consulta = "SELECT idCategoria from producto p inner join categoria c on p.idCategoria = c.idCategoria"
+//                + "where c.nombre = ?";
+//             
+//             con = this.getConection();
+//             
+//             PreparedStatement statement = con.prepareStatement(consulta);
+//             statement.setString(1,categoria);
+//             statement.setInt(2, 1);
+//             ResultSet res = statement.executeQuery();
+//                  
+//             while(res.next()){
+//                idCategoria= res.getInt("idCategoria");
+//                 
+//             }
+//         } catch (SQLException ex) {
+//             Logger.getLogger(DataProducto.class.getName()).log(Level.SEVERE, null, ex);
+//         }
+//         return idCategoria;       
+//    } 
+   
+      
     
 }
