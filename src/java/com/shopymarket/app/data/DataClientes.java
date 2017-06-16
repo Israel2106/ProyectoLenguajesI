@@ -80,7 +80,7 @@ public class DataClientes extends DataBase{
         return actualizar;
     }
     
-    public void insertarUbicacionVendedor(int idEmpresa,String provincia,String canton, String distrito,String ubicacionE){
+    public void insertarUbicacionVendedor(String idEmpresa,String provincia,String canton, String distrito,String ubicacionE){
        String sql= "CALL pa_agregarUbicacionVendedor("+idEmpresa+","
                + "'"+provincia+"','"+canton+"','"+distrito+"','"+ubicacionE+"');";
        
@@ -112,6 +112,68 @@ public class DataClientes extends DataBase{
            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return lc;
+    }
+    
+    public LinkedList<Cliente> obtenerVendedoresPorUbicacion(String prov, String cant, String dist){ 
+        LinkedList<Cliente> lc= new LinkedList<>();
+        String sql= "CALL pa_obtener_Vendedores_por_ubicacion('"+prov+"','"+cant+"','"+dist+"')";
+        ResultSet r= null;
+        try {
+            con = this.getConection();
+            CallableStatement proc = (CallableStatement) con.prepareCall(sql);
+            r=proc.executeQuery();
+            while(r.next()){
+                Cliente c= new Cliente(r.getString("nombre"), r.getString("email"), r.getString("telefono"));
+                c.setId(r.getInt("idUsuario"));
+                c.setProvincia(r.getString("provincia"));
+                c.setCanton(r.getString("canton"));
+                c.setDistrito(r.getString("distrito"));
+                c.setEspecificacion(r.getString("ubicacionEspecifica"));
+                lc.add(c);
+            }
+            con.close();
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return lc;
+    }
+    
+    public LinkedList<String> obtenerCantones(){
+        LinkedList<String> lc= new LinkedList<>();
+        String sql= "CALL pa_obtener_Cantones";
+        ResultSet r= null;
+        try {
+            con = this.getConection();
+            CallableStatement proc = (CallableStatement) con.prepareCall(sql);
+            r=proc.executeQuery();
+            while(r.next()){
+                lc.add(r.getString("canton"));
+            }
+            con.close();
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return lc;
+    
+    }
+    
+    public LinkedList<String> obtenerDistritos(){
+        LinkedList<String> lc= new LinkedList<>();
+        String sql= "CALL pa_obtener_distritos";
+        ResultSet r= null;
+        try {
+            con = this.getConection();
+            CallableStatement proc = (CallableStatement) con.prepareCall(sql);
+            r=proc.executeQuery();
+            while(r.next()){
+                lc.add(r.getString("distrito"));
+            }
+            con.close();
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return lc;
+    
     }
     
     

@@ -33,6 +33,41 @@
             </nav>
 
         </header>
+        <br>
+        
+        <form method="get" action="./cliente.do">
+            <input type="hidden" name="metodo" value="mostrarClientesPorUbicacion" >
+            Buscar por Ubicación:<br>
+            <select name="provincia" style="width: 20%">
+                <option value="choose">Elíge tu Provincia</option>
+                <option value="Sanjose">San José</option>
+                <option value="Heredia">Heredia</option>
+                <option value="Alajuela">Alajuela</option>
+                <option value="cartago">Cartago</option>
+                <option value="limon">Limon</option>
+                <option value="Puntarenas">Puntarenas</option>
+                <option value="Guanacaste">Guanacaste</option>
+            </select>
+            <select name="canton" style="width: 20%">
+                <option value="choose">Elíge tu Cantón</option>
+                <logic:iterate name="cantones" id="i"> 
+                    <option value="<bean:write name="i"/>">
+                        <bean:write name="i"/>
+                    </option>
+                </logic:iterate>
+            </select>
+            <select name="distrito" style="width: 20%">
+                <option value="choose">Elíge tu Distrito</option>
+                <logic:iterate name="distritos" id="i"> 
+                    <option value="<bean:write name="i"/>">
+                        <bean:write name="i"/>
+                    </option>
+                </logic:iterate>
+            </select>
+            <input type="submit" value="Buscar">
+        </form>
+        
+
         
         <section id="main-content">
             <ul class="galeria">

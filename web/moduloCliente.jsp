@@ -69,11 +69,28 @@
                 <div class="cerrar"><a href="javascript:cerrarVentanaUbicaciones();">X</a></div>
                 <h1>Nueva ubicacion</h1>
                 <hr>
-                <form>
-                    Canton:<br>
+                <form method="post" action="./cliente.do">
+                    <input type="hidden" name="metodo" value="setUbicacion" >
+                    <input type="hidden" name="idEmpresa" value="<bean:write name="cliente" property="id"/>" >
+                    <input type="hidden" name="nombre" value="<bean:write name="cliente" property="nombreEmpresa"/>" >
+                    <input type="hidden" name="email" value="<bean:write name="cliente" property="email"/>" >
+                    <input type="hidden" name="telefono" value="<bean:write name="cliente" property="telefono"/>" >
+                    Provincia:<br>
+                    <select name="provincia" style="width: 90%">
+                        <option value="Sanjose">San José</option>
+                        <option value="Heredia">Heredia</option>
+                        <option value="Alajuela">Alajuela</option>
+                        <option value="Cartago">Cartago</option>
+                        <option value="Limon">Limon</option>
+                        <option value="Puntarenas">Puntarenas</option>
+                        <option value="Guanacaste">Guanacaste</option>
+                    </select><br>
+                    Cantón:<br>
                     <input type="text" name="canton" ><br>
-                    Ubicacion:<br>
-                    <input type="text" name="ubicacion" ><br>
+                    Distrito:<br>
+                    <input type="text" name="distrito" ><br>
+                    Especificación:<br>
+                    <input type="text" name="especificacion" ><br>
                     <input type="submit" value="Agregar" >
                 </form>
 
