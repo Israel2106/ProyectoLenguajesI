@@ -13,13 +13,22 @@
         </group>
         <group>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/InsertarProductos.jsp</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataCategoria.java</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/dominio/Producto.hbm.xml</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataUsuariosH.java</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/dominio/ProductoHb.java</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataUsuarios.java</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/mostrar_productos.jsp</file>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/dominio/Producto.java</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/javascript/validar_productos.js</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/css/global_css.css</file>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/action/ProductosAction.java</file>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataProducto.java</file>
-            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataClientes.java</file>
-            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/HibernateUtil.java</file>
-            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataUsuarios.java</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/modificar_producto.jsp</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/javascript/validar.js</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/javascript/paginacion_angular.js</file>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/WEB-INF/struts-config.xml</file>
+            <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/dominio/Carrito.java</file>
         </group>
     </open-files>
 </project-private>

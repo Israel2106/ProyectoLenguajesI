@@ -7,6 +7,7 @@ package com.shopymarket.app.action;
 
 import com.shopymarket.app.bussiness.BussinessUsuarios;
 import com.shopymarket.app.dominio.Usuarios;
+import com.shopymarket.app.dominio.UsuariosB;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -40,7 +41,7 @@ public class ActionUsuarios extends DispatchAction {
         String pass = request.getParameter("pass");
         //int id = Integer.parseInt(request.getParameter("id"));
         String direccion = request.getParameter("direccion");
-       Usuarios usua = new Usuarios(email, user, pass, 0, direccion, "");
+       UsuariosB usua = new UsuariosB(email, user, pass, 0, direccion, "");
        BussinessUsuarios bu = new BussinessUsuarios();
        
         bu.enviarMensaje(email, "");//email= receptor del mensaje
@@ -84,7 +85,7 @@ public class ActionUsuarios extends DispatchAction {
         String direccion = request.getParameter("direccion");
        
         
-        Usuarios usua = new Usuarios(email, user, pass, id, direccion, "");
+        UsuariosB usua = new UsuariosB(email, user, pass, id, direccion, "");
         
         BussinessUsuarios bu = new BussinessUsuarios();
         bu.actualizarU(id, usua);

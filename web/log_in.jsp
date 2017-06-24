@@ -16,16 +16,20 @@
     </head>
     <body>
         
-         <header id="main-header">
+      <header id="main-header">
             
-            <a id="logo-header" href="Inicio.html">
-                <img src="./img/logo3.png"  width="50" height="50"/>
+            <a id="logo-header"  href="./Inicio.html">
                 <span class="site-name">ShopyMarket</span>
 		<span class="site-desc">Tu Mercado Cerquitica</span>
-                
             </a> <!-- / #logo-header -->
             
-            
+             <nav>
+		<ul>
+                    <li><a href="./Inicio.html">Volver</a></li>
+                    <li><a href="log_in.jsp">Inicio Sesion</a></li>
+                    
+		</ul>
+            </nav><!-- / nav -->
 
         </header>
         
@@ -36,29 +40,23 @@
              
           }
         %>
-        
-        <div class="container">
-            <img src="img/man.png"/>
-            
+             
             <form method="POST" action="./usuarios.do" class="formulario">
                 <input type="hidden" name="metodo" value="userLogIn"/>
-                
-                <div class="form-input">
-                    <input type="text" required="required" placeholder="Nombre Usuario o Correo" name="user_name">
+                <img src="img/man.png" width="50%" height="50%"/>
+                <div class="input-group">
+                    <input class="f-in" type="text" required="required" placeholder="Nombre Usuario o Correo" name="user_name">
                 </div>
-                <div class="form-input">
-                    <input type="password" required="required" placeholder="Contraseña" name="pass">
+                <div class="input-group">
+                    <input class="f-in" type="password" required="required" placeholder="Contraseña" name="pass">
                 </div>
-                
-               
-                <div> <input type="submit" name="log_in" value="Iniciar Sesion"/></div>
-                
+ 
+                <div class="input-group"> <input class="f-in" type="submit" name="log_in" value="Iniciar Sesion"/></div>
+                <a href="./insertar_usuario.html">CREAR CUENTA</a>
+                </br>
+                <a href="./recuperarcontrasena.jsp">Olvidé mi contraseña</a>
             </form>
-            
-            <a href="./insertar_usuario.html">CREAR CUENTA</a>
-            </br>
-            <a href="./recuperarcontrasena.jsp">Olvidé mi contraseña</a>
-        </div>
+           
     </body>
 </html>
 

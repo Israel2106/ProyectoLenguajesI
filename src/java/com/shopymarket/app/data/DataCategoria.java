@@ -74,7 +74,7 @@ public class DataCategoria extends HibernateUtil{
     }
     public static void main(String args []){
         DataCategoria dcat= new DataCategoria();
-        Categoria categoria = new Categoria("Licores");
+        Categoria categoria = new Categoria("Lacteos");
         
         dcat.insert(categoria);
         dcat.getEstudiantes();

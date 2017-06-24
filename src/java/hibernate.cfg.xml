@@ -46,5 +46,8 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shopymarketdb?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <mapping resource="com/shopymarket/app/dominio/Categoria.hbm.xml"/>
+    <mapping resource="com/shopymarket/app/dominio/Usuarios.hbm.xml"/>
+    <!--<mapping resource="com/shopymarket/app/dominio/Direc.hbm.xml"/>-->
+    <mapping resource="com/shopymarket/app/dominio/Producto.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

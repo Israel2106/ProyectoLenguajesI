@@ -44,7 +44,8 @@
                 <li class="galeria_item" ng-repeat="producto in productos  | filter:buscar" >
                         <input type="hidden" name="metodo" value="modificar"/>
                         <input type="hidden" name="idCliente"  value="{{producto.idCliente}}"/>
-                        <input type="hidden" name="idProducto" value="{{producto.idProducto}}"/>
+                        <input type="hidden" name="id" value="{{producto.idProducto}}"/>
+                        <input type="hidden" name="n" value="{{producto.nombre}}"/>
                         <img class="foto" src="img/no-image.svg" style=" width: 95%" class="galeria_img" alt="{{producto.imagen}}"/>
                         <div class="lb"> Nombre: </div>
                     <center><div class="lb"><input class="lbe" type="text" name="nombre" value="{{producto.nombre}}"/></div></center>
@@ -53,7 +54,7 @@
                         <div class="lb">  Cantidad  </div>
                          <center><div class="lb"><input type="text" name="cantidad" value="{{producto.cantidad}}"/></div></center>
                          <div class="lb">  Precio  </div>
-                         <center><div class="lb"><input type="text" name="precio" value="{{producto.precio}}"/></div></center>
+                         <center><div class="lb"><input type="text" name="precio" value="{{producto.idProducto}}"/></div></center>
                         <input type="submit"  value="Modificar"/>
                     </li> 
                

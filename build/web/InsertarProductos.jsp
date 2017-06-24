@@ -22,7 +22,7 @@
     <body>
         
         <header>            
-            <a id="logo-header" >
+            <a id="logo-header" href="./Inicio.html">
                 <span class="site-name">ShopyMarket</span>
 		<span class="site-desc">Tu Mercado Cerquitica</span>
             </a> <!-- / #logo-header -->
@@ -74,7 +74,7 @@
             </div>                         
             <div  class="input-group">
                 <a href="./productos.do?metodo=seleccionarImagen">Insertar Imágen</a>
-               
+                <input type="file" id="file"/>
                 <input id="btnEnviarProducto" type="submit" value="Agregar" onclick="">                         
             </div>
         </form>

@@ -85,7 +85,7 @@ public class DataProducto extends DataBase {
         
        String sql = "CALL insertar_producto('"+p.getIdCategoria()+"',"+p.getCantidad()+",'"+p.getNombre()+"',"
                + ""+p.getPrecio()+",'"+p.getMarca()+"',"+p.getIdCliente()+",'"+p.getImagen()+"')";
-        String msj ="";       
+           
 
         ResultSet result;
         try {
@@ -95,14 +95,11 @@ public class DataProducto extends DataBase {
             
             result = proc.executeQuery(sql);
            
-             if(result.next()){
-                
+             if(result.next()){                
                 if(result.getString("resultado").equals("el nombre ya existe")){
                     inserto =false;
-                    msj =result.getString("resultado");
                 }else {
                     inserto =false;
-                    msj =result.getString("resultado");
                 }
             }
             con.close();
@@ -149,13 +146,14 @@ public class DataProducto extends DataBase {
             PreparedStatement statement= con.prepareStatement(sql);
 //            statement.setInt(1,idProducto);
 //            statement.setInt(2, idCliente);
-            statement.execute();
-            
-            
-            
+            statement.execute();  
+            statement.close();
+            con.close();
         }catch(SQLException e){
+             System.out.println("No Actualiza el producto ");  
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        System.out.println("Actualiza el producto ");  
         return actualiza;
     
     }
@@ -185,6 +183,8 @@ public class DataProducto extends DataBase {
                  producto.setIdCliente(res.getInt("idVendedor"));
                  producto.setImagen(res.getString("imagen"));
              }
+             statement.close();
+             con.close();
          } catch (SQLException ex) {
              Logger.getLogger(DataProducto.class.getName()).log(Level.SEVERE, null, ex);
          }
@@ -232,8 +232,6 @@ public class DataProducto extends DataBase {
     public static void main(String args[]){
         DataProducto d = new DataProducto("root","");
         
-             
-         
         d.mostrarDatos("producto");
     
     }

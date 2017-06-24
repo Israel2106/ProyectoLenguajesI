@@ -37,6 +37,8 @@
         </header>
         <form method="get" action="./productos.do">
             <input type="hidden" value=""/>
+            <input type="hidden" name="idCliente"  value="{{producto.idCliente}}"/>
+            <input type="hidden" name="idProducto" value="{{producto.idProducto}}"/>
         <ul class="galeria">
             
             <logic:iterate id="producto" name="lista">

@@ -7,7 +7,7 @@ package com.shopymarket.app.data;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Statement;
-import com.shopymarket.app.dominio.Usuarios;
+import com.shopymarket.app.dominio.UsuariosB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +32,7 @@ public class DataUsuarios extends DataBase{
     }
     
     
-      public boolean insertarUsuario(Usuarios user){
+      public boolean insertarUsuario(UsuariosB user){
         boolean inserto = true;
         String sql ="CALL insertar_usuario('"+user.getEmail()+"', '"+user.getUserName()+"', '"+user.getContrasena()+"', '"+user.getDireccion()+"')";
 
@@ -74,7 +74,7 @@ public class DataUsuarios extends DataBase{
         return eliminar;
     }
         
-        public boolean actualizarUsuario(int id_user, Usuarios user){
+        public boolean actualizarUsuario(int id_user, UsuariosB user){
     
         boolean actualizar = true;    
         String sql= "CALL pa_ActualizarUsuario('"+user.getEmail()+"','"+user.getUserName()+"','"+user.getContrasena()+"','"+user.getDireccion()+"',"+id_user+")";
@@ -92,11 +92,11 @@ public class DataUsuarios extends DataBase{
         return actualizar;
     }
         
-     public Usuarios validarUser(String user, String pass){
+     public UsuariosB validarUser(String user, String pass){
          
         String sql= "CALL pa_validarUser('"+user+"', '"+pass+"')";
-        Usuarios usuario;
-        usuario = new Usuarios("", "", "", 0, "", "");
+        UsuariosB usuario;
+        usuario = new UsuariosB("", "", "", 0, "", "");
         try {
             con = this.getConection();
             CallableStatement cst = (CallableStatement) con.prepareCall(sql);
@@ -124,13 +124,13 @@ public class DataUsuarios extends DataBase{
      }
      
      
-      public Usuarios getUsuario(int id){
+      public UsuariosB getUsuario(int id){
         
         
         String sql ="CALL pa_obtenerUsuario("+id+")";
         
-        Usuarios usuarios;
-        usuarios = new Usuarios("", "", "", 0, "","");
+        UsuariosB usuarios;
+        usuarios = new UsuariosB("", "", "", 0, "","");
      
         try {
             con=this.getConection();
@@ -188,8 +188,8 @@ public class DataUsuarios extends DataBase{
      public boolean confirmarUsuario(String user, String pass){
          
         String sql= "CALL pa_validarUser('"+user+"', '"+pass+"')";
-        Usuarios usuario;
-        usuario = new Usuarios("", "", "", 0, "","");
+        UsuariosB usuario;
+        usuario = new UsuariosB("", "", "", 0, "","");
        
         try {
             con = this.getConection();

@@ -7,7 +7,7 @@ package com.shopymarket.app.bussiness;
 
 import Email.EnviarCorreo;
 import com.shopymarket.app.data.DataUsuarios;
-import com.shopymarket.app.dominio.Usuarios;
+import com.shopymarket.app.dominio.UsuariosB;
 
 /**
  *
@@ -15,7 +15,7 @@ import com.shopymarket.app.dominio.Usuarios;
  */
 public class BussinessUsuarios {
     
-       public boolean insertarU(Usuarios user){
+       public boolean insertarU(UsuariosB user){
         
         DataUsuarios du = new DataUsuarios("root","");//DataUsuarios("ucrgrupo4","Grupo#4Koee!")
         //du.insertarUsuario(user);//email, user, pass, id, direccion
@@ -31,14 +31,14 @@ public class BussinessUsuarios {
      }
     
      //*************************************************************************
-      public void actualizarU(int id_user, Usuarios us){
+      public void actualizarU(int id_user, UsuariosB us){
          
           DataUsuarios du = new DataUsuarios("root","");
           
             du.actualizarUsuario(id_user, us);
      }
       
-      public Usuarios userValidar(String user, String pass){
+      public UsuariosB userValidar(String user, String pass){
           
           
           DataUsuarios du = new DataUsuarios("root","");
@@ -50,7 +50,7 @@ public class BussinessUsuarios {
   
  //**************************************************************************************************************+
       
-       public Usuarios verUsuario(int id){
+       public UsuariosB verUsuario(int id){
         DataUsuarios datu = new DataUsuarios("root", "");
         return datu.getUsuario(id);
     }

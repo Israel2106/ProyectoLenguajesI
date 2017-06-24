@@ -5,6 +5,7 @@
  */
 package com.shopymarket.app.dominio;
 
+
 /**
  *
  * @author EmmanuelJs
@@ -15,20 +16,29 @@ public class Usuarios {
     private String userName;
     private String contrasena;
     private int id;
-    private String direccion;
     private String tipoU; 
+    private Direccion direccion;
 
-    public Usuarios(String email, String userName, String contrasena, int id, String direccion, String tipoU) {
+    public Usuarios(){
+    }
+    public Usuarios(String email, String userName, String contrasena, String tipoU) {
         this.email = email;
         this.userName = userName;
         this.contrasena = contrasena;
-        this.id = id;
-        this.direccion = direccion;
-        this.tipoU=this.tipoU;
+        
+        this.tipoU= tipoU;
+      
 
     }
     
-    
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }    
 
     public String getEmail() {
         return email;
@@ -60,14 +70,6 @@ public class Usuarios {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
     }
 
     public String getTipoU() {

@@ -19,6 +19,8 @@ public class Producto {
     int idProducto;
     String imagen;
 
+    public Producto(){}
+    
     public Producto (String nombre, String marca,int cantidad, int precio){
         
         this.cantidad = cantidad;

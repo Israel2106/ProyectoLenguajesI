@@ -140,12 +140,13 @@ public class ProductosAction extends DispatchAction {
             throws Exception {
          
          int idCliente= Integer.parseInt(request.getParameter("idCliente"));
-         int idproducto= Integer.parseInt(request.getParameter("idProducto"));
+         int idproducto= Integer.parseInt(request.getParameter("id"));
 
-                 
-         Producto p = new Producto (request.getParameter("nombre"),request.getParameter("marca"),
+               System.out.println("idC "+idCliente+" prod " +idproducto+"");  
+         Producto p = new Producto (request.getParameter("n"),request.getParameter("marca"),
          Integer.parseInt(request.getParameter("cantidad")),Integer.parseInt(request.getParameter("precio")));
          
+         System.out.println("Producto "+request.getParameter("nombre"));  
          bProducto.actualizar(idproducto, idCliente, p);
 
            
