@@ -8,6 +8,7 @@ package com.shopymarket.app.bussiness;
 import Email.EnviarCorreo;
 import com.shopymarket.app.data.DataUsuarios;
 import com.shopymarket.app.dominio.Usuarios;
+import com.shopymarket.app.dominio.UsuariosB;
 
 /**
  *
@@ -31,14 +32,14 @@ public class BussinessUsuarios {
      }
     
      //*************************************************************************
-      public void actualizarU(int id_user, Usuarios us){
+      public void actualizarU(int id_user, UsuariosB us){
          
           DataUsuarios du = new DataUsuarios("root","");
           
             du.actualizarUsuario(id_user, us);
      }
       
-      public Usuarios userValidar(String user, String pass){
+      public UsuariosB userValidar(String user, String pass){
           
           
           DataUsuarios du = new DataUsuarios("root","");
@@ -50,9 +51,16 @@ public class BussinessUsuarios {
   
  //**************************************************************************************************************+
       
-       public Usuarios verUsuario(int id){
+       public boolean verUsuario(String usuario, String contrasena){
         DataUsuarios datu = new DataUsuarios("root", "");
-        return datu.getUsuario(id);
+        UsuariosB us = datu.getUsuario(usuario, contrasena);
+        if(us.getEmail().equals("") && us.getContrasena().equals("")){
+            return false;
+        
+        }else{
+            return true;
+        }
+         
     }
        
           public void enviarMensaje(String receptor, String pass){

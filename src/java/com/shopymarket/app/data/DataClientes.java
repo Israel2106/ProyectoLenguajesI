@@ -132,4 +132,25 @@ public class DataClientes extends DataBase{
             }		
             return id;
 	}
+       
+        public Cliente obtenerVendedor(String nom, String pass){ 
+        
+        String sql= "CALL obtener_vendedor ('"+nom+"','"+pass+"')";
+        ResultSet r= null;
+        Cliente cli = null;
+        try {
+            con = this.getConection();
+            CallableStatement proc = (CallableStatement) con.prepareCall(sql);
+            r=proc.executeQuery();
+            while(r.next()){
+                 cli= new Cliente(r.getString("nombre"), r.getString("email"), r.getString("telefono"));
+                cli.setId(r.getInt("idUsuario"));
+                
+            }
+            con.close();
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return cli;
+    }
 }

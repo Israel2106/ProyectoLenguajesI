@@ -8,6 +8,7 @@ package com.shopymarket.app.data;
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Statement;
 import com.shopymarket.app.dominio.Usuarios;
+import com.shopymarket.app.dominio.UsuariosB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -74,7 +75,7 @@ public class DataUsuarios extends DataBase{
         return eliminar;
     }
         
-        public boolean actualizarUsuario(int id_user, Usuarios user){
+        public boolean actualizarUsuario(int id_user, UsuariosB user){
     
         boolean actualizar = true;    
         String sql= "CALL pa_ActualizarUsuario('"+user.getEmail()+"','"+user.getUserName()+"','"+user.getContrasena()+"','"+user.getDireccion()+"',"+id_user+")";
@@ -92,11 +93,11 @@ public class DataUsuarios extends DataBase{
         return actualizar;
     }
         
-     public Usuarios validarUser(String user, String pass){
+     public UsuariosB validarUser(String user, String pass){
          
         String sql= "CALL pa_validarUser('"+user+"', '"+pass+"')";
-        Usuarios usuario;
-        usuario = new Usuarios("", "", "", 0, "", "");
+        UsuariosB usuario;
+        usuario = new UsuariosB("", "", "", 0, "", "");
         try {
             con = this.getConection();
             CallableStatement cst = (CallableStatement) con.prepareCall(sql);
@@ -124,13 +125,13 @@ public class DataUsuarios extends DataBase{
      }
      
      
-      public Usuarios getUsuario(int id){
+      public UsuariosB getUsuario(String usuario, String contrasena){
         
         
-        String sql ="CALL pa_obtenerUsuario("+id+")";
+       String sql ="CALL pa_obtenerUsuario('"+usuario+"','"+contrasena+"')";
         
-        Usuarios usuarios;
-        usuarios = new Usuarios("", "", "", 0, "","");
+        UsuariosB usuarios;
+        usuarios = new UsuariosB("", "", "", 0, "","");
      
         try {
             con=this.getConection();
@@ -143,7 +144,8 @@ public class DataUsuarios extends DataBase{
                 usuarios.setUserName(result.getString("nombre"));
                 usuarios.setContrasena(result.getString("pass"));
                 usuarios.setId(result.getInt("idUsuario"));
-                usuarios.setDireccion(result.getString("direccion"));
+                //usuarios.setDireccion(result.getString("direccion"));
+                usuarios.setTipoU(result.getString("tipoUsuario"));
                 
 
             }
@@ -188,8 +190,8 @@ public class DataUsuarios extends DataBase{
      public boolean confirmarUsuario(String user, String pass){
          
         String sql= "CALL pa_validarUser('"+user+"', '"+pass+"')";
-        Usuarios usuario;
-        usuario = new Usuarios("", "", "", 0, "","");
+        UsuariosB usuario;
+        usuario = new UsuariosB("", "", "", 0, "","");
        
         try {
             con = this.getConection();
@@ -224,4 +226,39 @@ public class DataUsuarios extends DataBase{
         return false;
      
      }
+     
+      public LinkedList<UsuariosB> verUsuariosTipo(String tipo){
+          
+         LinkedList<UsuariosB> listaU= new LinkedList<>();
+         
+        String sql= "call pa_obtenerUsuarioTipo('"+tipo+"')";
+        UsuariosB usuario;
+        
+        try {
+            con = this.getConection();
+            CallableStatement cst = (CallableStatement) con.prepareCall(sql);
+            ResultSet rs=cst.executeQuery();
+         
+            while(rs.next()){
+                usuario = new UsuariosB(rs.getString("email"), rs.getString("nombre"), rs.getString("pass"), 0, "",rs.getString("tipoUsuario"));
+                listaU.add(usuario);
+           
+            }
+       
+            cst.close();
+            con.close();
+ 
+        } catch (SQLException ex) {
+          
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
+        return listaU;
+     
+     }
+      
+      public static void main (String rgs[]){
+       DataUsuarios du = new DataUsuarios("root","");
+       JOptionPane.showMessageDialog(null,du.verUsuariosTipo("comprador").getFirst().getUserName());
+      }
 }

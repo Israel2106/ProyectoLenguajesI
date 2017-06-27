@@ -5,8 +5,16 @@
  */
 package com.shopymarket.app.action;
 
+import com.shopymarket.app.bussiness.BussinessCliente;
 import com.shopymarket.app.bussiness.BussinessUsuarios;
+import com.shopymarket.app.data.DataClientes;
+import com.shopymarket.app.data.DataUsuarios;
+import com.shopymarket.app.data.DataUsuariosH;
+import com.shopymarket.app.dominio.Cliente;
+import com.shopymarket.app.dominio.Direccion;
 import com.shopymarket.app.dominio.Usuarios;
+import com.shopymarket.app.dominio.UsuariosB;
+import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -40,12 +48,16 @@ public class ActionUsuarios extends DispatchAction {
         String pass = request.getParameter("pass");
         //int id = Integer.parseInt(request.getParameter("id"));
         String direccion = request.getParameter("direccion");
-       Usuarios usua = new Usuarios(email, user, pass, 0, direccion, "");
+        
+       UsuariosB usua = new UsuariosB(email, user, pass, 0, direccion, "");
        BussinessUsuarios bu = new BussinessUsuarios();
+       
+       DataUsuariosH de= new DataUsuariosH();
+       de.insert(usua);
        
         bu.enviarMensaje(email, "");//email= receptor del mensaje
   
-        if(bu.insertarU(usua)==true){
+       /* if(de.insert(usua)){
             
             return mapping.findForward("error_log_in");
             
@@ -53,7 +65,8 @@ public class ActionUsuarios extends DispatchAction {
             
             JOptionPane.showMessageDialog(null, "El correo ya existe intente con otro");
             return mapping.findForward("insertar_usuario.html");
-            }
+            }*/
+       return mapping.findForward("error_log_in");
     }
 
     /**
@@ -77,23 +90,29 @@ public class ActionUsuarios extends DispatchAction {
             throws Exception {
         
         
-          String email = request.getParameter("email");
+        String email = request.getParameter("email");
         String user = request.getParameter("user_name");
         String pass = request.getParameter("pass");
         int id = Integer.parseInt(request.getParameter("id"));
         String direccion = request.getParameter("direccion");
        
         
-        Usuarios usua = new Usuarios(email, user, pass, id, direccion, "");
+        UsuariosB usua = new UsuariosB(email, user, pass, id, direccion,"");
         
         BussinessUsuarios bu = new BussinessUsuarios();
         bu.actualizarU(id, usua);
         
-        request.setAttribute("id", id);
-              request.setAttribute("email", email);
-              request.setAttribute("direccion", direccion);
-              request.setAttribute("user_name", user);
-              request.setAttribute("pass", pass);
+        HttpSession sesion = request.getSession(true);// inicio la sesion
+ 
+            sesion.setAttribute("id", id);
+            sesion.setAttribute("user_name", user);
+            sesion.setAttribute("email", email);
+            sesion.setAttribute("direccion", direccion);
+            sesion.setAttribute("pass", pass);
+        
+         BussinessCliente bc= new BussinessCliente("root", "");
+         LinkedList<Cliente> supermercados= bc.obtenerTodosVendedores();
+         request.setAttribute("supermercados", supermercados);
         
         return mapping.findForward("comprador");
     }
@@ -105,37 +124,45 @@ public class ActionUsuarios extends DispatchAction {
       String pass= request.getParameter("pass");
       
       BussinessUsuarios bus = new BussinessUsuarios();
+      DataUsuarios du = new DataUsuarios("root", "");
    
-      if(bus.encontrarUsuario(userName, pass)){
-         
+      if(bus.verUsuario(userName, pass)){
+          HttpSession sesion = request.getSession(true);// inicio la sesion
+          
+          if(du.getUsuario(userName, pass).getTipoU().equals("Comprador")){
+          
             userName = bus.userValidar(userName, pass).getUserName();
-            pass = bus.userValidar(userName, pass).getContrasena();
-            String email= bus.userValidar(userName, pass).getEmail();
-            int id=bus.userValidar(userName, pass).getId();
-            String direccion=bus.userValidar(userName, pass).getDireccion();
-            String tipoU = bus.userValidar(userName, pass).getTipoU();
+            pass =   bus.userValidar(userName, pass).getContrasena();
+            String   email= bus.userValidar(userName, pass).getEmail();
+            int id = bus.userValidar(userName, pass).getId();
+            String direccion = bus.userValidar(userName, pass).getDireccion();
             
-            HttpSession sesion = request.getSession(true);// inicio la sesion
- 
-            sesion.setAttribute("id", id);
+            sesion.setAttribute("id", id);//seteo en la sesion y el el jsp los obtengo con sesion.getAttribute
             sesion.setAttribute("user_name", userName);
             sesion.setAttribute("email", email);
             sesion.setAttribute("direccion", direccion);
             sesion.setAttribute("pass", pass);
             
-            if(tipoU.equals("Comprador")){
-                return mapping.findForward("comprador");
-            }else{
-                return mapping.findForward("moduloCliente");
-            }
             
+            BussinessCliente bc= new BussinessCliente("root", "");
+            LinkedList<Cliente> supermercados= bc.obtenerTodosVendedores();
+            request.setAttribute("supermercados", supermercados);//con esto le paso las tiendas 
             
-             
-           
+            return mapping.findForward("comprador");
+            
+          }else if(du.getUsuario(userName, pass).getTipoU().equals("Vendedor")){
+                    DataClientes dc = new DataClientes("root", "");
+                    Cliente cli =dc.obtenerVendedor(userName, pass);
+                    request.setAttribute("cliente",cli);
+                    return mapping.findForward("moduloCliente");
+          }else{
+              
+                return mapping.findForward("error_log_in");
+          }
+  
       }else{
             return mapping.findForward("error_log_in");
       }
-      
      }
      
       public ActionForward configuracionUs(ActionMapping mapping, ActionForm form,

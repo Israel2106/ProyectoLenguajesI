@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="Examen">
-            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/configuracionusuario.jsp</file>
-            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/User_logueado/logueado.jsp</file>
-            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/moduloCliente.jsp</file>
-            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/registrarCliente.jsp</file>
-            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/com/shopymarket/app/action/ActionUsuarios.java</file>
-            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/web/WEB-INF/struts-config.xml</file>
-            <file>file:/C:/Users/EmmanuelJs/Desktop/ProyectLenguajes1.1/ProyectoLenguajesI/src/java/com/shopymarket/app/action/ClienteAction.java</file>
-        </group>
         <group>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/InsertarProductos.jsp</file>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/dominio/Producto.java</file>
@@ -20,6 +11,12 @@
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/HibernateUtil.java</file>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/src/java/com/shopymarket/app/data/DataUsuarios.java</file>
             <file>file:/C:/Users/Hector%20Zuñiga/Documents/NetBeansProjects/ProyectoLenguajesI/web/WEB-INF/struts-config.xml</file>
+        </group>
+        <group name="Examen">
+            <file>file:/C:/Users/EmmanuelJs/Documents/Lenguajes/proyYe/ProyectoLenguajesYes/src/java/com/shopymarket/app/data/DataClientes.java</file>
+            <file>file:/C:/Users/EmmanuelJs/Documents/Lenguajes/proyYe/ProyectoLenguajesYes/src/java/com/shopymarket/app/bussiness/BussinessUsuarios.java</file>
+            <file>file:/C:/Users/EmmanuelJs/Documents/Lenguajes/proyYe/ProyectoLenguajesYes/src/java/com/shopymarket/app/action/ActionUsuarios.java</file>
+            <file>file:/C:/Users/EmmanuelJs/Documents/Lenguajes/proyYe/ProyectoLenguajesYes/web/User_logueado/logueado.jsp</file>
         </group>
     </open-files>
 </project-private>

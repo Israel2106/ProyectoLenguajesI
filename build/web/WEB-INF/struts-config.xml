@@ -17,6 +17,7 @@
     <global-forwards>
         <forward name="welcome"  path="/Welcome.do"/>
         <forward name="inicio"  path="/Inicio.html"/>
+        <forward name= "moduloCliente" path="/moduloCliente.jsp"/>
     </global-forwards>
 
     <action-mappings>

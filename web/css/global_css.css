@@ -300,6 +300,7 @@ input[type=button], input[type=submit], input[type=reset] {
     display: block;
     background: white;    
 }
+
 #categoria {
     width: 90%;
     padding: 12px 20px;
@@ -379,3 +380,14 @@ input[type=button], input[type=submit], input[type=reset] {
 #pagination {
   text-align: center;
 }
+
+.main-content {
+	background: #666;
+	color: white;
+	height: 100px;
+	width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+}
+
